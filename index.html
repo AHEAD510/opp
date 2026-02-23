@@ -85,7 +85,7 @@
 <main class="tp_main">
   <canvas class="js_traislLine" id="js_trail"></canvas>
   <div class="tp_video">
-    <video src="../assets/video/mini.mp4" class="tp_video_soure" poster="../assets/img/top/kv_img.jpg" autoplay loop muted playsinline></video>
+    <video src="./assets/video/mini.mp4" class="tp_video_soure" poster="./assets/img/top/kv_img.jpg" autoplay loop muted playsinline></video>
   </div>
   <div class="tp_lineWrap">
     <div class="tp_hero js_heroBg">
@@ -280,7 +280,8 @@
         </a>
       </li>
     </ul>
-  </section><!-- /.tp_srvc -->
+  </section>
+  <!-- /.tp_srvc -->
   <!-- Works block commented out
   <section class="tp_works">
     <div class="tp_works_header">
@@ -400,8 +401,64 @@
         </span>
       </a>
     </p>
-  </section>
-  -->
+  </section>-->
+<!-- NEWS -->
+<section class="tp_news" id="news">
+  <div class="tp_news_inner">
+    <header class="tp_news_header">
+      <h2 class="tp_lv2Heading">NEWS</h2>
+    </header>
+
+    <div class="tp_news_list swiper js_newsSwiper">
+      <div class="swiper-wrapper">
+        <!-- item -->
+        <article class="tp_news_item swiper-slide">
+          <a class="tp_news_link" href="javascript:void(0)" data-news-id="1">
+            <div class="tp_news_thumb">
+              <img src="./assets/img/top/works_img01.jpg" alt="" />
+              <span class="tp_news_tag">news</span>
+            </div>
+            <time class="tp_news_date" datetime="2026-01-01">2026.01.01</time>
+            <p class="tp_news_txt">テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </a>
+        </article>
+
+        <article class="tp_news_item swiper-slide">
+          <a class="tp_news_link" href="javascript:void(0)" data-news-id="2">
+            <div class="tp_news_thumb">
+              <img src="./assets/img/top/works_img02.jpg" alt="" />
+              <span class="tp_news_tag">news</span>
+            </div>
+            <time class="tp_news_date" datetime="2026-01-01">2026.01.01</time>
+            <p class="tp_news_txt">テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </a>
+        </article>
+
+        <article class="tp_news_item swiper-slide">
+          <a class="tp_news_link" href="javascript:void(0)" data-news-id="3">
+            <div class="tp_news_thumb">
+              <img src="./assets/img/top/works_img03.jpg" alt="" />
+              <span class="tp_news_tag">news</span>
+            </div>
+            <time class="tp_news_date" datetime="2026-01-01">2026.01.01</time>
+            <p class="tp_news_txt">テキストが入ります。テキストが入ります。テキストが入ります。</p>
+          </a>
+        </article>
+      </div>
+    </div>
+
+    <!-- nav -->
+    <div class="tp_news_nav">
+      <div class="tp_news_arrow">
+        <div class="tp_news_prev js_newsPrev" aria-label="previous"></div>
+        <div class="tp_news_next js_newsNext" aria-label="next"></div>
+      </div>
+      <div class="swiper-scrollbar js_newsScrollbar"></div>
+
+    </div>
+  </div>
+</section>
+
 </main>
 <!-- contact ///////////////////////////////////-->
 <div class="bl_contact">
