@@ -1,0 +1,4 @@
+// ==========================================
+//   event
+// ==========================================
+document.addEventListener("DOMContentLoaded",function(){loadingAnime()}),window.addEventListener("load",function(){loader()});const loader=function(){$(".js_loaderCover").delay(2e3).fadeOut(1e3),$(".js_loader").delay(1e3).fadeOut(500),setTimeout(function(){return_scroll()},2500)};function scroll_control(e){e.preventDefault()}function no_scroll(){document.addEventListener("mousewheel",scroll_control,{passive:!1}),document.addEventListener("touchmove",scroll_control,{passive:!1})}function return_scroll(){document.removeEventListener("mousewheel",scroll_control,{passive:!1}),document.removeEventListener("touchmove",scroll_control,{passive:!1})}

@@ -1,0 +1,11 @@
+// ==========================================
+//   event
+// ==========================================
+document.addEventListener("DOMContentLoaded",()=>{}),window.addEventListener("load",e=>{}),window.addEventListener("scroll",()=>{});const openBtns=document.querySelectorAll(".js_modalOpen"),modal=document.querySelector(".js_modal"),overlay=document.querySelector(".js_modalOverlay"),closeBtn=document.querySelector(".js_modalClose"),modalContent=document.querySelector(".js_modalContent");let lastFocused=null;const focusableSelectors=`
+  a[href],
+  button:not([disabled]),
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]),
+  [tabindex]:not([tabindex="-1"])
+`;function revealModalContents(){document.querySelectorAll(".js_modalMask").forEach((e,t)=>{setTimeout(()=>{e.classList.add("is_revealed")},150*t)})}function openModal(e){lastFocused=document.activeElement,modal.hidden=!1,overlay.hidden=!1,e?fetch(e).then(e=>e.text()).then(e=>{modalContent.innerHTML=e,requestAnimationFrame(()=>{overlay.classList.add("is_active"),modal.classList.add("is_active"),revealModalContents()})}):requestAnimationFrame(()=>{overlay.classList.add("is_active"),modal.classList.add("is_active"),revealModalContents()}),document.body.classList.add("is_modalOpen"),modal.setAttribute("aria-hidden","false"),closeBtn.focus(),document.addEventListener("keydown",trapFocus)}function closeModal(){overlay.classList.remove("is_active"),modal.classList.remove("is_active"),document.body.classList.remove("is_modalOpen"),modal.setAttribute("aria-hidden","true"),setTimeout(()=>{modal.hidden=!0,overlay.hidden=!0,modalContent.innerHTML=""},400)}function trapFocus(e){var t,o;"Escape"===e.key?closeModal():(t=(o=modal.querySelectorAll(focusableSelectors))[0],o=o[o.length-1],"Tab"===e.key&&(e.shiftKey?document.activeElement===t&&(o.focus(),e.preventDefault()):document.activeElement===o&&(t.focus(),e.preventDefault())))}openBtns.forEach(e=>{e.addEventListener("click",()=>{openModal(e.dataset.url)})}),overlay.addEventListener("click",closeModal),closeBtn.addEventListener("click",closeModal);
