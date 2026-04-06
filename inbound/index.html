@@ -34,6 +34,7 @@
       position: relative;
       display: inline-block;
       padding-bottom: 4px;
+      isolation: isolate;
     }
 
     .about-title-mark::after {
@@ -42,18 +43,74 @@
       left: 0;
       bottom: 2px;
       width: 100%;
-      height: 9px;
+      height: 18px;
       background: #ff6957;
       opacity: 0.95;
       border-radius: 0;
-      z-index: -1;
+      z-index: 0;
+    }
+
+    .about-title-mark > .about-title-mark__txt {
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 767px) {
       .about-title-mark::after {
         width: 100%;
-        height: 6px;
+        height: 12px;
         bottom: 1px;
+      }
+    }
+    .flow-card-toggle {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .flow-slide-panel {
+      transform: translateY(18px);
+      opacity: 0;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .flow-panels {
+      overflow: visible;
+    }
+
+    .flow-card-primary {
+      position: relative;
+      transition: flex 0.4s ease, box-shadow 0.4s ease;
+      z-index: 1;
+    }
+
+    .flow-card-primary:hover {
+      z-index: 20;
+    }
+
+    @media (min-width: 768px) {
+      .flow-panels {
+        display: flex;
+      }
+
+      .flow-panels > div {
+        flex: 1;
+        transition: flex 0.4s ease;
+      }
+
+      .flow-panels:hover > div {
+        flex: 0.72;
+      }
+
+      .flow-panels > div:hover {
+        flex: 2.35;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
+        z-index: 20;
+      }
+
+      .flow-panels > div:hover .flow-slide-panel {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   </style>
@@ -124,7 +181,9 @@
         </h1>
       </div>
     </div>
-  </section>
+
+</section>
+
 
   <!-- About -->
   <section class="bg-[#f5f5f4] py-20 md:py-32 overflow-hidden">
@@ -134,7 +193,7 @@
       <div class="relative z-10">
         <div class="mb-8 md:mb-12">
           <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827] text-left whitespace-normal md:whitespace-nowrap">
-            <span class="about-title-mark inline-block whitespace-nowrap">インバウンド特化型</span>
+            <span class="about-title-mark inline-block whitespace-nowrap"><span class="about-title-mark__txt">インバウンド特化型</span></span>
             <span class="block md:inline-block md:ml-0">の集客サポート</span>
           </h2>
         </div>
@@ -176,6 +235,105 @@
       </div>
     </div>
   </section>
+
+  <!-- Decision Flow -->
+  <section class="bg-white py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 md:px-8">
+
+      <!-- heading -->
+      <div class="text-center">
+        <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827]">
+          インバウンドは
+          <span class="about-title-mark inline-block whitespace-nowrap"><span class="about-title-mark__txt">「いつ・どのように」</span></span><br>
+          行き先を決めているの？
+        </h2>
+
+        <p class="mt-4 text-blue-600 font-semibold">
+          旅前（渡航前）の情報収集が意思決定の8割を占める。
+        </p>
+        <p class="text-gray-700 mt-2">
+          旅ナカでは「確認」が中心となり、新たな認知を獲得するのは難しくなります。
+        </p>
+      </div>
+
+
+      
+
+      <!-- 3 panels -->
+      <div class="flow-panels mt-10 md:flex">
+
+        <!-- 01 -->
+        <div class="flow-card-primary relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+
+          <img src="assets/images/flow_01.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/25"></div>
+
+          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light leading-none tracking-[-0.03em]">01</span>
+
+          <div class="absolute left-10 top-20 md:top-24 text-white z-10 flex items-end gap-2">
+            <div class="text-[42px] md:text-[56px] font-bold leading-none tracking-[-0.03em]">旅マエ</div>
+            <div class="text-[12px] md:text-[13px] mb-[6px] tracking-[0.06em]">タビマエ</div>
+          </div>
+
+          <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
+            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+                SNSや検索で行き先・体験をリサーチし、<br>
+                候補をほぼ決定している状態
+              </p>
+            </div>
+          </div>
+          <div class="absolute inset-0 z-30"></div>
+        </div>
+
+        <!-- 02 -->
+        <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+          <img src="assets/images/flow_02.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/25"></div>
+
+          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light">02</span>
+
+          <div class="absolute left-8 top-20 text-white">
+            <div class="text-3xl md:text-5xl font-bold">旅ナカ</div>
+          </div>
+          <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
+            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+                現地での確認・最終判断フェーズ。<br>
+                新たな選択肢は入りづらい状態
+              </p>
+            </div>
+          </div>
+          <div class="absolute inset-0 z-30"></div>
+        </div>
+
+        <!-- 03 -->
+        <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+          <img src="assets/images/flow_03.jpg" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/25"></div>
+
+          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light">03</span>
+
+          <div class="absolute left-8 top-20 text-white">
+            <div class="text-3xl md:text-5xl font-bold">旅アト</div>
+          </div>
+          <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
+            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+                体験後の共有・口コミフェーズ。<br>
+                次の旅の意思決定に影響
+              </p>
+            </div>
+          </div>
+          <div class="absolute inset-0 z-30"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
 
 </body>
 </html>
