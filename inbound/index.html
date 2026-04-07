@@ -6,7 +6,7 @@
   <title>タビマエ・インバウンド</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&family=Poppins:wght@600&family=Sulphur+Point:wght@300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Sans+JP:wght@400&family=Poppins:wght@600&family=Sulphur+Point:wght@300&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /*
@@ -74,6 +74,10 @@
       transition: transform 0.35s ease, opacity 0.35s ease;
     }
 
+    .flow-dim {
+      transition: background-color 0.35s ease;
+    }
+
     .flow-panels {
       overflow: visible;
     }
@@ -82,6 +86,42 @@
       position: relative;
       transition: flex 0.4s ease, box-shadow 0.4s ease;
       z-index: 1;
+    }
+
+    .flow-no {
+      position: absolute;
+      left: 10px;
+      top: 14px;
+      color: rgba(255, 255, 255, 0.58);
+      font-family: "Montserrat", sans-serif;
+      font-size: 120px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .flow-title-wrap {
+      position: absolute;
+      left: 56px;
+      top: 50px;
+      width: 140px;
+      text-align: center;
+      color: #fff;
+      z-index: 10;
+    }
+
+    .flow-title-ja {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .flow-title-kana {
+      margin-top: 6px;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: 0.04em;
     }
 
     .flow-card-primary:hover {
@@ -111,6 +151,29 @@
       .flow-panels > div:hover .flow-slide-panel {
         transform: translateY(0);
         opacity: 1;
+      }
+
+      .flow-panels > div:hover .flow-dim {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .flow-no {
+        left: 12px;
+        top: 14px;
+        font-size: 120px;
+      }
+
+      .flow-title-wrap {
+        left: 56px;
+        top: 50px;
+      }
+
+      .flow-title-ja {
+        font-size: 32px;
+      }
+
+      .flow-title-kana {
+        font-size: 10px;
       }
     }
   </style>
@@ -237,7 +300,7 @@
   </section>
 
   <!-- Decision Flow -->
-  <section class="bg-white py-20 md:py-28">
+  <section class="bg-white pt-20 pb-[80px] md:pt-28 md:pb-[80px]">
     <div class="max-w-6xl mx-auto px-6 md:px-8">
 
       <!-- heading -->
@@ -248,10 +311,10 @@
           行き先を決めているの？
         </h2>
 
-        <p class="mt-4 text-blue-600 font-semibold">
+        <p class="mt-4 text-blue-600 font-semibold text-[24px] leading-[1.6]">
           旅前（渡航前）の情報収集が意思決定の8割を占める。
         </p>
-        <p class="text-gray-700 mt-2">
+        <p class="text-gray-700 mt-2 text-[24px] leading-[1.6]">
           旅ナカでは「確認」が中心となり、新たな認知を獲得するのは難しくなります。
         </p>
       </div>
@@ -266,17 +329,17 @@
         <div class="flow-card-primary relative h-[420px] md:h-[560px] overflow-hidden bg-black">
 
           <img src="assets/images/flow_01.jpg" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0 bg-black/25"></div>
 
-          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light leading-none tracking-[-0.03em]">01</span>
+          <span class="flow-no">01</span>
 
-          <div class="absolute left-10 top-20 md:top-24 text-white z-10 flex items-end gap-2">
-            <div class="text-[42px] md:text-[56px] font-bold leading-none tracking-[-0.03em]">旅マエ</div>
-            <div class="text-[12px] md:text-[13px] mb-[6px] tracking-[0.06em]">タビマエ</div>
+          <div class="flow-title-wrap">
+            <div class="flow-title-ja">旅前</div>
+            <div class="flow-title-kana">タビマエ</div>
           </div>
 
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
-            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+            <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
               <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
                 SNSや検索で行き先・体験をリサーチし、<br>
                 候補をほぼ決定している状態
@@ -289,15 +352,16 @@
         <!-- 02 -->
         <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_02.jpg" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0 bg-black/25"></div>
 
-          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light">02</span>
+          <span class="flow-no">02</span>
 
-          <div class="absolute left-8 top-20 text-white">
-            <div class="text-3xl md:text-5xl font-bold">旅ナカ</div>
+          <div class="flow-title-wrap">
+            <div class="flow-title-ja">旅中</div>
+            <div class="flow-title-kana">タビナカ</div>
           </div>
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
-            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+            <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
               <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
                 現地での確認・最終判断フェーズ。<br>
                 新たな選択肢は入りづらい状態
@@ -310,15 +374,16 @@
         <!-- 03 -->
         <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_03.jpg" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0 bg-black/25"></div>
 
-          <span class="absolute left-4 top-4 text-white/60 text-[80px] md:text-[120px] font-light">03</span>
+          <span class="flow-no">03</span>
 
-          <div class="absolute left-8 top-20 text-white">
-            <div class="text-3xl md:text-5xl font-bold">旅アト</div>
+          <div class="flow-title-wrap">
+            <div class="flow-title-ja">旅後</div>
+            <div class="flow-title-kana">タビアト</div>
           </div>
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
-            <div class="bg-white/82 backdrop-blur-sm rounded-[20px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
+            <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
               <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
                 体験後の共有・口コミフェーズ。<br>
                 次の旅の意思決定に影響
@@ -330,6 +395,21 @@
 
       </div>
 
+    </div>
+  </section>
+
+  <!-- SNS Research -->
+  <section class="bg-white pt-0 pb-20 md:pb-24">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+      <img src="assets/images/flow_people.png" alt="SNSで情報収集する旅行者" class="w-full max-w-[640px] mx-auto h-auto">
+
+      <div class="mt-12 md:mt-14 space-y-3 md:space-y-4 text-[#3f3f46] text-[24px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
+        <p>旅行者は渡航前からInstagramやTikTok、RED（小紅書）などのSNSを活用し、</p>
+        <p>行き先や体験を徹底的にリサーチしています。</p>
+        <p>現地で探すのではなく、事前に「行く場所リスト」を作成し、それをもとに行動するのが一般的です。</p>
+        <p>インフルエンサーや口コミの影響も大きく、</p>
+        <p><span class="text-[#2b7ea1]">「知られていない」時点で選択肢に入らない時代</span>になっています。</p>
+      </div>
     </div>
   </section>
 
