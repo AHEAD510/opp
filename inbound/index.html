@@ -176,6 +176,188 @@
         font-size: 10px;
       }
     }
+
+    .section-late {
+      position: relative;
+      width: 100%;
+      max-height: 600px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .late-image {
+      display: block;
+      width: 100%;
+      height: 600px;
+      max-height: 600px;
+      object-fit: cover;
+      position: relative;
+      z-index: 0;
+    }
+
+    .late-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .late-circle-wrap {
+      position: absolute;
+      left: 50.5%;
+      top: 51.5%;
+      width: min(46vw, 540px);
+      aspect-ratio: 1 / 1;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .late-circle-ring {
+      position: absolute;
+      inset: 0;
+      border: 6px solid rgba(255, 255, 255, 0.95);
+      border-radius: 9999px;
+      box-sizing: border-box;
+    }
+
+
+    .late-dot {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .late-balloon {
+      position: absolute;
+      right: 4.5%;
+      top: 4.8%;
+      z-index: 4;
+      width: min(40vw, 500px);
+    }
+
+    .late-balloon-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .late-balloon-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 26px 16px 26px;
+      font-size: clamp(18px, 2.2vw, 28px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 767px) {
+      .section-late {
+        max-height: none;
+      }
+
+      .late-image {
+        height: auto;
+        max-height: none;
+      }
+
+      .late-circle-wrap {
+        left: 50%;
+        top: 52%;
+        width: min(74vw, 370px);
+      }
+
+      .late-balloon {
+        right: 2.5%;
+        top: 3%;
+        width: min(62vw, 300px);
+      }
+
+      .late-balloon-text {
+        padding: 0 14px 10px 14px;
+        font-size: 15px;
+      }
+    }
+
+    .late-heading-wrap {
+      position: relative;
+      width: 100%;
+      height: 192px;
+      overflow: visible;
+    }
+
+    .late-heading-bg {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      clip-path: polygon(0 0, 100% 0, 100% 8%, 95% 8%, 50% 100%, 5% 8%, 0 8%);
+      z-index: 0;
+    }
+
+    .late-heading-title {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 72px;
+      padding: 0 24px;
+    }
+
+    .late-title-mark {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 4px;
+      isolation: isolate;
+    }
+
+    .late-title-mark::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 18px;
+      background: #ff6957;
+      opacity: 0.95;
+      z-index: 0;
+    }
+
+    .late-title-mark > .late-title-mark__txt {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 767px) {
+      .late-heading-wrap {
+        height: 144px;
+      }
+
+      .late-heading-bg {
+        clip-path: polygon(0 0, 100% 0, 100% 10%, 92% 10%, 50% 100%, 8% 10%, 0 10%);
+      }
+
+      .late-heading-title {
+        margin-top: 56px;
+        padding: 0 16px;
+      }
+
+      .late-title-mark::after {
+        bottom: 1px;
+        height: 12px;
+      }
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -271,7 +453,7 @@
 
           <!-- 右：テキストカラム -->
           <div class="about-text md:w-[56%] md:pt-4 md:pl-3">
-            <div class="space-y-5 text-[#555] leading-[1.9] text-[14.5px] md:text-[15px] max-w-[520px] md:pt-1">
+            <div class="space-y-5 text-[#555] leading-[1.9] text-[14.5px] md:text-[16px] max-w-[520px] md:pt-1">
               <p>
                 タビマエ・インバウンドは、「訪日外国人（インバウンド）の集客」に特化した集客支援サービスです。
               </p>
@@ -311,10 +493,10 @@
           行き先を決めているの？
         </h2>
 
-        <p class="mt-4 text-blue-600 font-semibold text-[24px] leading-[1.6]">
+        <p class="mt-4 text-blue-600 font-semibold text-[20px] md:text-[24px] leading-[1.6]">
           旅前（渡航前）の情報収集が意思決定の8割を占める。
         </p>
-        <p class="text-gray-700 mt-2 text-[24px] leading-[1.6]">
+        <p class="text-gray-700 mt-2 text-[20px] md:text-[24px] leading-[1.6]">
           旅ナカでは「確認」が中心となり、新たな認知を獲得するのは難しくなります。
         </p>
       </div>
@@ -403,12 +585,80 @@
     <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
       <img src="assets/images/flow_people.png" alt="SNSで情報収集する旅行者" class="w-full max-w-[640px] mx-auto h-auto">
 
-      <div class="mt-12 md:mt-14 space-y-3 md:space-y-4 text-[#3f3f46] text-[24px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
+      <div class="mt-12 md:mt-14 space-y-3 md:space-y-4 text-[#3f3f46] text-[20px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
         <p>旅行者は渡航前からInstagramやTikTok、RED（小紅書）などのSNSを活用し、</p>
         <p>行き先や体験を徹底的にリサーチしています。</p>
         <p>現地で探すのではなく、事前に「行く場所リスト」を作成し、それをもとに行動するのが一般的です。</p>
         <p>インフルエンサーや口コミの影響も大きく、</p>
         <p><span class="text-[#2b7ea1]">「知られていない」時点で選択肢に入らない時代</span>になっています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Late -->
+  <section class="bg-[#ECECEC] pt-0">
+    <div class="late-heading-wrap">
+      <div class="late-heading-bg" aria-hidden="true"></div>
+    </div>
+
+    <div class="late-heading-title">
+      <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827] text-center whitespace-normal md:whitespace-nowrap">
+        <span class="late-title-mark"><span class="late-title-mark__txt">「日本に来てから」</span></span>では遅すぎる。
+      </h2>
+    </div>
+
+    <div class="section-late mt-12 md:mt-16 w-full">
+      <img src="assets/images/late-photo.jpg" alt="来日後の旅行者写真" class="late-image">
+      <div class="late-photo-overlay" aria-hidden="true"></div>
+
+      <div class="late-circle-wrap" aria-hidden="true">
+        <div class="late-circle-ring"></div>
+        <img src="assets/images/late-dot.svg" alt="" class="late-dot">
+      </div>
+
+      <div class="late-balloon">
+        <img src="assets/images/growth-arrow.svg" alt="" aria-hidden="true" class="late-balloon-svg">
+        <p class="late-balloon-text">行くトコ決まってまーす</p>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center mt-10 md:mt-12">
+      <div class="space-y-3 md:space-y-4 text-[#3f3f46] text-[20px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
+        <p>旅行の9割以上は来日前に目的地を決めています。</p>
+        <p>
+          タビマエ・インバウンドは、海外旅行者が旅を計画する
+          <span class="text-[#2b7ea1]">「旅先」の情報からあなたのお店を候補に入れてもらう</span>
+          ためのマーケティングを提供します。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#ECECEC] pt-14 md:pt-16 pb-0 relative">
+    <div class="max-w-5xl mx-auto px-6 md:px-8 relative z-20">
+      <div class="bg-white rounded-[20px] shadow-md p-6 md:p-10 overflow-hidden">
+        <h3 class="text-[36px] md:text-[48px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#111827]">
+          インバウンド集客は今後も
+          <span class="text-[#ff6957]">成長率7%！</span>
+        </h3>
+        <p class="mt-4 text-[18px] md:text-[24px] font-semibold leading-[1.75] text-[#222]">
+          政府は2030年に訪日外国人旅行者数
+          <span class="text-[#ff6957]">6,000万人</span>
+          を目標に掲げており今後も誘客施策に力をいれることが予想されています。
+        </p>
+        <img src="assets/images/growth-chart.png" alt="訪日外国人旅行者数の推移グラフ" class="w-full h-auto mt-6 md:mt-8 block">
+      </div>
+    </div>
+
+    <div class="relative z-10 mt-[-88px] md:mt-[-130px]">
+      <img src="assets/images/bg-luggage.jpg" alt="空港のスーツケース" class="w-full h-[800px] object-cover" style="object-position: center 10%;">
+      <div class="absolute inset-0 bg-black/20"></div>
+      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+        <p class="text-white font-extrabold leading-[1.45] tracking-[0.01em]">
+          <span class="block text-[26px] md:text-[44px]">タビマエ<span class="text-[#ff6957]">・</span>インバウンドでは</span>
+          <span class="block text-[40px] md:text-[66px]">インバウンド集客に</span>
+          <span class="block text-[40px] md:text-[66px]">つながる施策だけを提供します</span>
+        </p>
       </div>
     </div>
   </section>
