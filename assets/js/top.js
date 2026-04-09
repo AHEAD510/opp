@@ -1,7 +1,7 @@
 // ==========================================
 //   event
 // ==========================================
-document.addEventListener("DOMContentLoaded",()=>{loadingAnime()}),window.addEventListener("load",e=>{loader(),heroLine()}),window.addEventListener("scroll",()=>{});const loader=function(){$(".js_loaderCover").delay(2e3).fadeOut(1e3),$(".js_loader").delay(1e3).fadeOut(500),setTimeout(function(){return_scroll(),$(".js_heroBg").addClass("is_animated"),$(".js_bgFlowHero").addClass("is_animated")},2500)};function loadingAnime(){lottie.loadAnimation({container:document.getElementById("js_loaderImg"),renderer:"svg",loop:!0,autoplay:!0,path:"/assets/json/loading.json"}).setSpeed(.8)}const heroLine=function(){document.querySelectorAll(".js_tpLinePath").forEach(e=>{var n=5+5*Math.random(),a=5*Math.random();e.style.animationDuration=n+"s",e.style.animationDelay=a+"s"})}
+document.addEventListener("DOMContentLoaded",()=>{loadingAnime()}),window.addEventListener("load",e=>{loader(),heroLine()}),window.addEventListener("scroll",()=>{});const loader=function(){$(".js_loaderCover").delay(2e3).fadeOut(1e3),$(".js_loader").delay(1e3).fadeOut(500),setTimeout(function(){return_scroll(),$(".js_heroBg").addClass("is_animated"),$(".js_bgFlowHero").addClass("is_animated")},2500)};function loadingAnime(){lottie.loadAnimation({container:document.getElementById("js_loaderImg"),renderer:"svg",loop:!0,autoplay:!0,path:"/opp/assets/json/loading.json"}).setSpeed(.8)}const heroLine=function(){document.querySelectorAll(".js_tpLinePath").forEach(e=>{var n=5+5*Math.random(),a=5*Math.random();e.style.animationDuration=n+"s",e.style.animationDelay=a+"s"})}
 // ==============================
 // TOP: NEWS swiper
 // ==============================
