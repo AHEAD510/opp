@@ -1,7 +1,85 @@
 // ==========================================
 //   event
 // ==========================================
-document.addEventListener("DOMContentLoaded",()=>{loadingAnime()}),window.addEventListener("load",e=>{loader(),heroLine()}),window.addEventListener("scroll",()=>{});const loader=function(){$(".js_loaderCover").delay(2e3).fadeOut(1e3),$(".js_loader").delay(1e3).fadeOut(500),setTimeout(function(){return_scroll(),$(".js_heroBg").addClass("is_animated"),$(".js_bgFlowHero").addClass("is_animated")},2500)};function loadingAnime(){lottie.loadAnimation({container:document.getElementById("js_loaderImg"),renderer:"svg",loop:!0,autoplay:!0,path:"/opp/assets/json/loading.json"}).setSpeed(.8)}const heroLine=function(){document.querySelectorAll(".js_tpLinePath").forEach(e=>{var n=5+5*Math.random(),a=5*Math.random();e.style.animationDuration=n+"s",e.style.animationDelay=a+"s"})}
+function __oppNormalizedDocumentBase() {
+  var u = new URL(document.baseURI);
+  var p = u.pathname;
+  if (!p.endsWith("/")) {
+    var last = p.slice(p.lastIndexOf("/") + 1);
+    if (last.indexOf(".") !== -1) u.pathname = p.slice(0, p.lastIndexOf("/") + 1);
+    else u.pathname = p + "/";
+  }
+  return u.href;
+}
+
+var __lottieJsonUrl = new URL(
+  "assets/json/loading.json",
+  __oppNormalizedDocumentBase()
+).href;
+
+var __loaderLottieStarted = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadingAnime();
+}),
+  window.addEventListener("load", function (e) {
+    loader();
+    heroLine();
+  }),
+  window.addEventListener("scroll", function () {});
+
+const loader = function () {
+  $(".js_loaderCover").delay(2e3).fadeOut(1e3),
+    $(".js_loader").delay(1e3).fadeOut(500),
+    setTimeout(function () {
+      return_scroll(),
+        $(".js_heroBg").addClass("is_animated"),
+        $(".js_bgFlowHero").addClass("is_animated");
+    }, 2500);
+};
+
+function loadingAnime() {
+  if (__loaderLottieStarted) return;
+  var container = document.getElementById("js_loaderImg");
+  if (!container) return;
+
+  function run() {
+    if (typeof lottie === "undefined") return false;
+    if (__loaderLottieStarted) return true;
+    try {
+      lottie
+        .loadAnimation({
+          container: container,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: __lottieJsonUrl,
+        })
+        .setSpeed(0.8);
+      __loaderLottieStarted = true;
+      return true;
+    } catch (err) {
+      console.warn("[LOADER] lottie.loadAnimation failed:", err);
+      return false;
+    }
+  }
+
+  if (!run()) {
+    window.addEventListener("load", function onLoadLottie() {
+      window.removeEventListener("load", onLoadLottie);
+      run();
+    });
+  }
+}
+
+const heroLine = function () {
+  document.querySelectorAll(".js_tpLinePath").forEach(function (e) {
+    var n = 5 + 5 * Math.random(),
+      a = 5 * Math.random();
+    e.style.animationDuration = n + "s";
+    e.style.animationDelay = a + "s";
+  });
+};
 // ==============================
 // TOP: NEWS swiper
 // ==============================
