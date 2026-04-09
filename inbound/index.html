@@ -6,365 +6,64 @@
   <title>タビマエ・インバウンド</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Sans+JP:wght@400&family=Poppins:wght@600&family=Sulphur+Point:wght@300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Noto+Sans+JP:wght@400&family=Poppins:wght@500;600&family=Sulphur+Point:wght@300&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /*
-     * about-bg-word はセクション直下に置き、section を基準に絶対配置する。
-     * left: -3vw → 常にビューポート左端からわずかにはみ出す。
-     * clamp で viewport 幅に応じてスケールさせ、どの画面幅でも一定の見え方にする。
-     */
-    .about-bg-word {
-      position: absolute;
-      left: -3vw;
-      top: 6px;
-      font-family: "Sulphur Point", sans-serif;
-      font-size: clamp(160px, 27vw, 390px);
-      font-weight: 300;
-      line-height: 0.82;
-      color: rgba(0,0,0,0.045);
-      z-index: 0;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.04em;
-      white-space: nowrap;
-    }
+  .footer-visual-copy {
+    font-weight: 700;
+    line-height: 0.7;
+    color: rgba(255,255,255,0.95);
+  }
 
-    .about-title-mark {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 4px;
-      isolation: isolate;
-    }
+  .fv-line-1,
+  .fv-line-2,
+  .fv-line-3 {
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.95;
+  }
 
-    .about-title-mark::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 2px;
-      width: 100%;
-      height: 18px;
-      background: #ff6957;
-      opacity: 0.95;
-      border-radius: 0;
-      z-index: 0;
-    }
+  .footer-visual-brand {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.4;
+  }
 
-    .about-title-mark > .about-title-mark__txt {
-      position: relative;
-      z-index: 1;
-    }
+  .footer-visual-menu {
+    color: rgba(255,255,255,0.85);
+  }
 
-    @media (max-width: 767px) {
-      .about-title-mark::after {
-        width: 100%;
-        height: 12px;
-        bottom: 1px;
-      }
-    }
-    .flow-card-toggle {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
+  .footer-visual-menu-title {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #fff;
+    opacity: 1;
+    margin-bottom: 16px;
+  }
 
-    .flow-slide-panel {
-      transform: translateY(18px);
-      opacity: 0;
-      transition: transform 0.35s ease, opacity 0.35s ease;
-    }
+  .footer-visual-menu-list li {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
 
-    .flow-dim {
-      transition: background-color 0.35s ease;
-    }
-
-    .flow-panels {
-      overflow: visible;
-    }
-
-    .flow-card-primary {
-      position: relative;
-      transition: flex 0.4s ease, box-shadow 0.4s ease;
-      z-index: 1;
-    }
-
-    .flow-no {
-      position: absolute;
-      left: 10px;
-      top: 14px;
-      color: rgba(255, 255, 255, 0.58);
-      font-family: "Montserrat", sans-serif;
-      font-size: 120px;
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .flow-title-wrap {
-      position: absolute;
-      left: 56px;
-      top: 50px;
-      width: 140px;
-      text-align: center;
-      color: #fff;
-      z-index: 10;
-    }
-
-    .flow-title-ja {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-
-    .flow-title-kana {
-      margin-top: 6px;
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: 0.04em;
-    }
-
-    .flow-card-primary:hover {
-      z-index: 20;
-    }
-
-    @media (min-width: 768px) {
-      .flow-panels {
-        display: flex;
-      }
-
-      .flow-panels > div {
-        flex: 1;
-        transition: flex 0.4s ease;
-      }
-
-      .flow-panels:hover > div {
-        flex: 0.72;
-      }
-
-      .flow-panels > div:hover {
-        flex: 2.35;
-        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.18);
-        z-index: 20;
-      }
-
-      .flow-panels > div:hover .flow-slide-panel {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      .flow-panels > div:hover .flow-dim {
-        background-color: rgba(0, 0, 0, 0);
-      }
-
-      .flow-no {
-        left: 12px;
-        top: 14px;
-        font-size: 120px;
-      }
-
-      .flow-title-wrap {
-        left: 56px;
-        top: 50px;
-      }
-
-      .flow-title-ja {
-        font-size: 32px;
-      }
-
-      .flow-title-kana {
-        font-size: 10px;
-      }
-    }
-
-    .section-late {
-      position: relative;
-      width: 100%;
-      max-height: 600px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .late-image {
-      display: block;
-      width: 100%;
-      height: 600px;
-      max-height: 600px;
-      object-fit: cover;
-      position: relative;
-      z-index: 0;
-    }
-
-    .late-photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .late-circle-wrap {
-      position: absolute;
-      left: 50.5%;
-      top: 51.5%;
-      width: min(46vw, 540px);
-      aspect-ratio: 1 / 1;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .late-circle-ring {
-      position: absolute;
-      inset: 0;
-      border: 6px solid rgba(255, 255, 255, 0.95);
-      border-radius: 9999px;
-      box-sizing: border-box;
-    }
-
-
-    .late-dot {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transform: translate(-50%, -50%);
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .late-balloon {
-      position: absolute;
-      right: 4.5%;
-      top: 4.8%;
-      z-index: 4;
-      width: min(40vw, 500px);
-    }
-
-    .late-balloon-svg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .late-balloon-text {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 26px 16px 26px;
-      font-size: clamp(18px, 2.2vw, 28px);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: #111827;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 767px) {
-      .section-late {
-        max-height: none;
-      }
-
-      .late-image {
-        height: auto;
-        max-height: none;
-      }
-
-      .late-circle-wrap {
-        left: 50%;
-        top: 52%;
-        width: min(74vw, 370px);
-      }
-
-      .late-balloon {
-        right: 2.5%;
-        top: 3%;
-        width: min(62vw, 300px);
-      }
-
-      .late-balloon-text {
-        padding: 0 14px 10px 14px;
-        font-size: 15px;
-      }
-    }
-
-    .late-heading-wrap {
-      position: relative;
-      width: 100%;
-      height: 192px;
-      overflow: visible;
-    }
-
-    .late-heading-bg {
-      position: absolute;
-      inset: 0;
-      background: #ffffff;
-      clip-path: polygon(0 0, 100% 0, 100% 8%, 95% 8%, 50% 100%, 5% 8%, 0 8%);
-      z-index: 0;
-    }
-
-    .late-heading-title {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      margin-top: 72px;
-      padding: 0 24px;
-    }
-
-    .late-title-mark {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 4px;
-      isolation: isolate;
-    }
-
-    .late-title-mark::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 2px;
-      height: 18px;
-      background: #ff6957;
-      opacity: 0.95;
-      z-index: 0;
-    }
-
-    .late-title-mark > .late-title-mark__txt {
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 767px) {
-      .late-heading-wrap {
-        height: 144px;
-      }
-
-      .late-heading-bg {
-        clip-path: polygon(0 0, 100% 0, 100% 10%, 92% 10%, 50% 100%, 8% 10%, 0 10%);
-      }
-
-      .late-heading-title {
-        margin-top: 56px;
-        padding: 0 16px;
-      }
-
-      .late-title-mark::after {
-        bottom: 1px;
-        height: 12px;
-      }
-    }
+  .footer-visual-menu-list a {
+    color: #fff;
+    text-decoration: none;
+  }
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
   <!-- Header -->
-  <header class="absolute top-0 left-0 w-full z-20 flex justify-between items-center px-8 py-6 text-white">
-    <div class="text-sm leading-tight" style="text-shadow: 0 1px 6px rgba(0,0,0,0.5);">
+  <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-6 text-white">
+    <div class="text-sm leading-tight js-header-title-switch" style="text-shadow: 0 1px 6px rgba(0,0,0,0.5);">
       <div class="font-medium">One Page Partner</div>
       <div class="font-semibold">タビマエ・インバウンド</div>
     </div>
@@ -384,7 +83,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="relative w-full h-screen">
+  <section class="relative w-full h-screen js-mv-section">
     <!-- Grid -->
     <div class="grid grid-cols-4 grid-rows-4 w-full h-full" style="filter: brightness(0.9);">
       <!-- 16枚画像 -->
@@ -420,7 +119,7 @@
           by One Page Partner
         </div>
 
-        <h1 class="text-5xl md:text-[76px] font-bold leading-[1.2] tracking-tight">
+        <h1 class="typo-h1">
           インバウンド集客は
           <span style="color: #FF6957;">「旅前」</span>で決まる。
         </h1>
@@ -437,7 +136,7 @@
 
       <div class="relative z-10">
         <div class="mb-8 md:mb-12">
-          <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827] text-left whitespace-normal md:whitespace-nowrap">
+          <h2 class="typo-h2 text-[#111827] text-left whitespace-normal md:whitespace-nowrap">
             <span class="about-title-mark inline-block whitespace-nowrap"><span class="about-title-mark__txt">インバウンド特化型</span></span>
             <span class="block md:inline-block md:ml-0">の集客サポート</span>
           </h2>
@@ -453,7 +152,7 @@
 
           <!-- 右：テキストカラム -->
           <div class="about-text md:w-[56%] md:pt-4 md:pl-3">
-            <div class="space-y-5 text-[#555] leading-[1.9] text-[14.5px] md:text-[16px] max-w-[520px] md:pt-1">
+            <div class="space-y-5 typo-body text-[#555] max-w-[520px] md:pt-1">
               <p>
                 タビマエ・インバウンドは、「訪日外国人（インバウンド）の集客」に特化した集客支援サービスです。
               </p>
@@ -469,7 +168,7 @@
               <p>
                 具体的には、インフルエンサー施策、SNS運用、広告運用、LP制作、MEOなど、必要なチャネルを横断して戦略的に構築・運用します。
               </p>
-              <p class="text-[17px] md:text-2xl font-semibold leading-[1.7] text-gray-900 mt-6 md:mt-8">
+              <p class="typo-lead text-gray-900 mt-6 md:mt-8">
                 “知ってもらう”だけではなく、<br>
                 実際に”来店してもらえる”仕組みを作ります。
               </p>
@@ -487,16 +186,16 @@
 
       <!-- heading -->
       <div class="text-center">
-        <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827]">
+        <h2 class="typo-h2 text-[#111827]">
           インバウンドは
           <span class="about-title-mark inline-block whitespace-nowrap"><span class="about-title-mark__txt">「いつ・どのように」</span></span><br>
           行き先を決めているの？
         </h2>
 
-        <p class="mt-4 text-blue-600 font-semibold text-[20px] md:text-[24px] leading-[1.6]">
+        <p class="mt-4 typo-lead text-blue-600">
           旅前（渡航前）の情報収集が意思決定の8割を占める。
         </p>
-        <p class="text-gray-700 mt-2 text-[20px] md:text-[24px] leading-[1.6]">
+        <p class="text-gray-700 mt-2 typo-lead">
           旅ナカでは「確認」が中心となり、新たな認知を獲得するのは難しくなります。
         </p>
       </div>
@@ -508,7 +207,7 @@
       <div class="flow-panels mt-10 md:flex">
 
         <!-- 01 -->
-        <div class="flow-card-primary relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+        <div class="flow-card flow-card-primary relative h-[420px] md:h-[560px] overflow-hidden bg-black">
 
           <img src="assets/images/flow_01.jpg" class="w-full h-full object-cover">
           <div class="flow-dim absolute inset-0 bg-black/25"></div>
@@ -522,7 +221,7 @@
 
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
             <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
-              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+              <p class="typo-body text-gray-800">
                 SNSや検索で行き先・体験をリサーチし、<br>
                 候補をほぼ決定している状態
               </p>
@@ -532,7 +231,7 @@
         </div>
 
         <!-- 02 -->
-        <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+        <div class="flow-card relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_02.jpg" class="w-full h-full object-cover">
           <div class="flow-dim absolute inset-0 bg-black/25"></div>
 
@@ -544,7 +243,7 @@
           </div>
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
             <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
-              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+              <p class="typo-body text-gray-800">
                 現地での確認・最終判断フェーズ。<br>
                 新たな選択肢は入りづらい状態
               </p>
@@ -554,7 +253,7 @@
         </div>
 
         <!-- 03 -->
-        <div class="relative h-[420px] md:h-[560px] overflow-hidden bg-black">
+        <div class="flow-card relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_03.jpg" class="w-full h-full object-cover">
           <div class="flow-dim absolute inset-0 bg-black/25"></div>
 
@@ -566,7 +265,7 @@
           </div>
           <div class="flow-slide-panel absolute left-6 right-6 bottom-10 md:bottom-12 z-20 pointer-events-none">
             <div class="bg-white/90 backdrop-blur-sm rounded-[32px] p-6 md:p-7 min-h-[120px] md:min-h-[132px] shadow-sm">
-              <p class="text-sm md:text-[15px] leading-[1.9] text-gray-800">
+              <p class="typo-body text-gray-800">
                 体験後の共有・口コミフェーズ。<br>
                 次の旅の意思決定に影響
               </p>
@@ -585,10 +284,11 @@
     <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
       <img src="assets/images/flow_people.png" alt="SNSで情報収集する旅行者" class="w-full max-w-[640px] mx-auto h-auto">
 
-      <div class="mt-12 md:mt-14 space-y-3 md:space-y-4 text-[#3f3f46] text-[20px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
+      <div class="mt-12 md:mt-14 space-y-3 md:space-y-4 text-[#3f3f46] typo-lead">
         <p>旅行者は渡航前からInstagramやTikTok、RED（小紅書）などのSNSを活用し、</p>
         <p>行き先や体験を徹底的にリサーチしています。</p>
-        <p>現地で探すのではなく、事前に「行く場所リスト」を作成し、それをもとに行動するのが一般的です。</p>
+        <p>現地で探すのではなく、事前に「行く場所リスト」を作成し、</p>
+        <p>それをもとに行動するのが一般的です。</p>
         <p>インフルエンサーや口コミの影響も大きく、</p>
         <p><span class="text-[#2b7ea1]">「知られていない」時点で選択肢に入らない時代</span>になっています。</p>
       </div>
@@ -602,7 +302,7 @@
     </div>
 
     <div class="late-heading-title">
-      <h2 class="text-[34px] md:text-[58px] font-extrabold leading-[1.05] tracking-[-0.025em] text-[#111827] text-center whitespace-normal md:whitespace-nowrap">
+      <h2 class="typo-h2 text-[#111827] text-center whitespace-normal md:whitespace-nowrap">
         <span class="late-title-mark"><span class="late-title-mark__txt">「日本に来てから」</span></span>では遅すぎる。
       </h2>
     </div>
@@ -623,7 +323,7 @@
     </div>
 
     <div class="max-w-6xl mx-auto px-6 md:px-8 text-center mt-10 md:mt-12">
-      <div class="space-y-3 md:space-y-4 text-[#3f3f46] text-[20px] md:text-[24px] leading-[1.8] md:leading-[1.75] tracking-[0.01em]">
+      <div class="space-y-3 md:space-y-4 text-[#3f3f46] typo-lead">
         <p>旅行の9割以上は来日前に目的地を決めています。</p>
         <p>
           タビマエ・インバウンドは、海外旅行者が旅を計画する
@@ -636,12 +336,12 @@
 
   <section class="bg-[#ECECEC] pt-14 md:pt-16 pb-0 relative">
     <div class="max-w-5xl mx-auto px-6 md:px-8 relative z-20">
-      <div class="bg-white rounded-[20px] shadow-md p-6 md:p-10 overflow-hidden">
-        <h3 class="text-[36px] md:text-[48px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#111827]">
+      <div class="bg-white rounded-[20px] shadow-md p-6 md:p-10 overflow-hidden js-reveal-up reveal-up">
+        <h3 class="typo-h3 text-[#111827]">
           インバウンド集客は今後も
           <span class="text-[#ff6957]">成長率7%！</span>
         </h3>
-        <p class="mt-4 text-[18px] md:text-[24px] font-semibold leading-[1.75] text-[#222]">
+        <p class="mt-4 typo-lead text-[#222]">
           政府は2030年に訪日外国人旅行者数
           <span class="text-[#ff6957]">6,000万人</span>
           を目標に掲げており今後も誘客施策に力をいれることが予想されています。
@@ -650,8 +350,8 @@
       </div>
     </div>
 
-    <div class="relative z-10 mt-[-88px] md:mt-[-130px]">
-      <img src="assets/images/bg-luggage.jpg" alt="空港のスーツケース" class="w-full h-[800px] object-cover" style="object-position: center 10%;">
+    <div class="relative z-10 mt-[-120px] md:mt-[-162px] overflow-hidden">
+      <img src="assets/images/bg-luggage.jpg" alt="空港のスーツケース" class="w-full h-[800px] object-cover js-parallax-plane" style="object-position: center 10%;">
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="absolute inset-0 flex items-center justify-center text-center px-6">
         <p class="text-white font-extrabold leading-[1.45] tracking-[0.01em]">
@@ -663,7 +363,151 @@
     </div>
   </section>
 
+  <!-- Services -->
+  <section class="section-services">
+    <div class="services-inner">
+      <div class="services-bg-word" aria-hidden="true">Services</div>
+
+      <div class="services-heading">
+        <h2 class="services-title">タビマエ<span class="services-title-dot">・</span>インバウンドのサービス</h2>
+        <div class="services-description">
+          <p>旅前（来日前）の認知獲得を軸に、<span class="services-emphasis">“選ばれる導線”を設計</span>し、予約・来店へとつなげます。</p>
+          <p>SNS・インフルエンサー・LP・MEOなど、各施策を分断せず一貫した戦略で運用。</p>
+          <p>さらに独自のインバウンドデータ分析ツールにより、成果の可視化と改善を高速で回します。</p>
+        </div>
+      </div>
+
+      <div class="services-card-grid-top">
+        <article class="services-card services-card-main">
+          <img src="assets/images/service-influencer-main.jpg" alt="インフルエンサーブースト">
+          <div class="services-card-label">インフルエンサーブースト</div>
+        </article>
+
+        <article class="services-card services-card-sub">
+          <img src="assets/images/service-sns-sub.jpg" alt="SNS戦略設計・運用">
+          <div class="services-card-label">SNS戦略設計・運用</div>
+        </article>
+      </div>
+
+      <div class="services-card-grid-bottom">
+        <article class="services-card services-card-small services-card-sub-mobile">
+          <img src="assets/images/service-sns-sub.jpg" alt="SNS戦略設計・運用">
+          <div class="services-card-label">SNS戦略設計・運用</div>
+        </article>
+        <article class="services-card services-card-small">
+          <img src="assets/images/service-hp-card.jpg" alt="HP/LP制作">
+          <div class="services-card-label">HP/LP制作</div>
+        </article>
+        <article class="services-card services-card-small">
+          <img src="assets/images/service-sns-card.jpg" alt="Web・SNS広告運用">
+          <div class="services-card-label">Web・SNS広告運用</div>
+        </article>
+        <article class="services-card services-card-small">
+          <img src="assets/images/service-meo-card.jpg" alt="MEO対策">
+          <div class="services-card-label">MEO対策</div>
+        </article>
+      </div>
+
+      <div class="services-crm-block">
+        <div>
+          <p class="services-crm-subtitle">インバウンド特化型CRM</p>
+          <h3 class="services-crm-heading">タビマエマーケコンシェルジュ</h3>
+          <div class="services-crm-text">
+            <p>色々施策をやっているけれど、正直どれが集客に繋がっているのか良くわからない。</p>
+            <p>そんな疑問を解決する「初めての人でもわかる、管理ツール」です。</p>
+            <p>インフルエンサーによる認知拡大、自社のSNS運用、Googleマップの運用など、インバウンド集客のために実施している施策が、いまどれくらい見られていて、検索されていて、結果として集客につながっているのか、一目でわかります。</p>
+            <p>また、このツールを通してAIと壁打ちしながら、貴社にとって最適なマーケティング計画を立てることも可能。</p>
+            <p>初めての人は難しいインフルエンサーの検索や依頼費用の相場も、管理画面から簡単に調べることができます。</p>
+          </div>
+
+          <div class="services-sns-link-card">
+            <p class="services-sns-link-title">さまざまなSNSと連携</p>
+            <div class="services-sns-link-icons">
+              <img src="assets/images/insta.png" alt="Instagram">
+              <img src="assets/images/tik.png" alt="TikTok">
+              <img src="assets/images/sho.png" alt="小紅書">
+            </div>
+          </div>
+        </div>
+
+        <div class="services-crm-image-wrap">
+          <p class="services-crm-note">※内容は開発中のものです</p>
+          <img src="assets/images/crm2.png" alt="インバウンド特化型CRMの管理画面" class="services-crm-image">
+        </div>
+      </div>
+    </div>
+  </section>
 
 
+  <section class="loop-slider" aria-label="横スクロール画像帯">
+    <div class="loop-slider__track">
+      <img src="assets/images/s1.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s2.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s3.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s4.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s5.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s6.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s7.jpg" alt="" class="loop-slider__item" />
+      <img src="assets/images/s1.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s2.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s3.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s4.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s5.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s6.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+      <img src="assets/images/s7.jpg" alt="" class="loop-slider__item" aria-hidden="true" />
+    </div>
+  </section>
+
+  <section class="bg-[#f3f3f1] py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 text-center">
+      <h2 class="typo-h2 tracking-[0.01em] text-[#111827]">
+        その魅力、<br>
+        <span class="about-title-mark inline-block whitespace-nowrap"><span class="about-title-mark__txt">旅前で選ばれる形</span></span>になっていますか？
+      </h2>
+
+      <p class="mt-10 md:mt-12 typo-lead text-[#111827]">
+        只今キャンペーン中！まずは無料お試し！
+      </p>
+
+      <div class="mt-10 md:mt-12 flex justify-center">
+        <a href="#" class="block w-full max-w-[800px]">
+          <img src="assets/images/cv.png" alt="無料資料請求はこちらから" class="block w-full h-auto" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-footer-visual" aria-label="フッター直前ビジュアル">
+    <img src="assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
+    <div class="footer-visual-overlay" aria-hidden="true"></div>
+    <div class="footer-visual-frame" aria-hidden="true"></div>
+
+    <div class="footer-visual-brand">
+      <p>タビマエ・インバウンド</p>
+      <p>by One Page Partner</p>
+    </div>
+
+    <p class="footer-visual-copy">
+      <span class="fv-line fv-line-1">次に行きたいと</span><br>
+      <span class="fv-line fv-line-2">思ったその瞬間、</span><br>
+      <span class="fv-line fv-line-3">もう貴社の魅力は伝わっている。</span>
+    </p>
+
+    <div class="footer-visual-menu">
+      <p class="footer-visual-menu-title">One Page Partner MENU</p>
+      <ul class="footer-visual-menu-list">
+        <li><a href="/">TOP</a></li>
+        <li><a href="/#news">NEWS</a></li>
+        <li><a href="/message/">MESSAGE</a></li>
+        <li><a href="/services/">SERVICES</a></li>
+        <li><a href="/works/">WORKS</a></li>
+        <li><a href="/team/">TEAM</a></li>
+        <li><a href="/company/">COMPANY</a></li>
+        <li><a href="/contact/">CONTACT</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
