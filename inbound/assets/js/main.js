@@ -144,3 +144,55 @@ if (flowCards.length) {
   }
   initFlowCardsForViewport();
 }
+
+// Drawer menu (PC/SP shared)
+(() => {
+  const btn = document.querySelector('.js-site-menu-btn');
+  const menu = document.querySelector('.js-site-menu');
+  const overlay = document.querySelector('.js-site-menu-overlay');
+
+  if (!btn || !menu || !overlay) return;
+
+  const open = () => {
+    document.body.classList.add('is-menu-open');
+    overlay.hidden = false;
+    menu.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+  };
+
+  const close = () => {
+    document.body.classList.remove('is-menu-open');
+    overlay.hidden = true;
+    menu.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  btn.addEventListener('click', () => {
+    const isOpen = document.body.classList.contains('is-menu-open');
+    if (isOpen) close();
+    else open();
+  });
+
+  overlay.addEventListener('click', close);
+
+  menu.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const hash = a.getAttribute('href');
+    if (hash && hash.startsWith('#')) {
+      const target = document.querySelector(hash);
+      if (target) {
+        e.preventDefault();
+        const header = document.querySelector('header');
+        const offset = header ? header.offsetHeight + 12 : 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }
+    }
+    close();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+})();
