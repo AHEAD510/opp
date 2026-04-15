@@ -89,15 +89,16 @@
       <div class="site-menu__visual">
         <video class="site-menu__video" src="assets/videos/menu.mp4" poster="assets/images/ft.jpg" autoplay muted loop playsinline></video>
         <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        <p class="site-menu__visual-title site-menu__visual-head">TABIMAE INBOUND MENU</p>
 
         <div class="site-menu__visual-brand">
           <p>ONE PAGE PARTNERS</p>
           <p>タビマエ・インバウンド</p>
         </div>
 
-        <p class="site-menu__visual-copy" aria-hidden="true">
-          <span>About</span>
-          <span>Services</span>
+        <p class="site-menu__visual-copy">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
         </p>
 
         <a href="#cta" class="site-menu__visual-cta">
@@ -130,28 +131,143 @@
 
   <!-- Hero -->
   <section id="top" class="relative w-full h-screen js-mv-section">
-    <!-- Grid -->
-    <div class="grid grid-cols-4 grid-rows-4 w-full h-full" style="filter: brightness(0.9);">
-      <!-- 16枚画像 -->
-      <img src="assets/images/hero_01.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_02.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_03.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_04.jpg" class="w-full h-full object-cover" />
+    <!-- Infinite Photo Marquee -->
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="hero-marquee__row hero-marquee__row--right">
+        <div class="hero-marquee__track">
+          <div class="hero-marquee__group">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_01.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_02.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item hero-marquee__item--candidate" data-candidate-group="heart-a" data-heart-duration="2600">
+              <img src="assets/images/hero_03.jpg" class="hero-marquee__media hero-marquee__photo" alt="" />
+              <video class="hero-marquee__media hero-marquee__video" src="assets/videos/hero_heart.mp4" muted playsinline preload="metadata"></video>
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_04.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+          <div class="hero-marquee__group" aria-hidden="true">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_01.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_02.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item hero-marquee__item--candidate" data-candidate-group="heart-a" data-heart-duration="2600">
+              <img src="assets/images/hero_03.jpg" class="hero-marquee__media hero-marquee__photo" alt="" />
+              <video class="hero-marquee__media hero-marquee__video" src="assets/videos/hero_heart.mp4" muted playsinline preload="metadata"></video>
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_04.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <img src="assets/images/hero_05.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_06.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_07.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_08.jpg" class="w-full h-full object-cover" />
+      <div class="hero-marquee__row hero-marquee__row--left">
+        <div class="hero-marquee__track">
+          <div class="hero-marquee__group">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_05.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_06.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_07.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_08.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+          <div class="hero-marquee__group" aria-hidden="true">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_05.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_06.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_07.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_08.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <img src="assets/images/hero_09.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_10.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_11.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_12.jpg" class="w-full h-full object-cover" />
+      <div class="hero-marquee__row hero-marquee__row--right hero-marquee__row--slow">
+        <div class="hero-marquee__track">
+          <div class="hero-marquee__group">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_09.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item hero-marquee__item--candidate" data-candidate-group="heart-c" data-heart-duration="2600">
+              <img src="assets/images/hero_10.jpg" class="hero-marquee__media hero-marquee__photo" alt="" />
+              <video class="hero-marquee__media hero-marquee__video" src="assets/videos/hero_heart.mp4" muted playsinline preload="metadata"></video>
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_11.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_12.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+          <div class="hero-marquee__group" aria-hidden="true">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_09.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item hero-marquee__item--candidate" data-candidate-group="heart-c" data-heart-duration="2600">
+              <img src="assets/images/hero_10.jpg" class="hero-marquee__media hero-marquee__photo" alt="" />
+              <video class="hero-marquee__media hero-marquee__video" src="assets/videos/hero_heart.mp4" muted playsinline preload="metadata"></video>
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_11.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_12.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <img src="assets/images/hero_13.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_14.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_15.jpg" class="w-full h-full object-cover" />
-      <img src="assets/images/hero_16.jpg" class="w-full h-full object-cover" />
+      <div class="hero-marquee__row hero-marquee__row--left hero-marquee__row--slow">
+        <div class="hero-marquee__track">
+          <div class="hero-marquee__group">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_13.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_14.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_15.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_16.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+          <div class="hero-marquee__group" aria-hidden="true">
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_13.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_14.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_15.jpg" class="hero-marquee__media" alt="" />
+            </div>
+            <div class="hero-marquee__item">
+              <img src="assets/images/hero_16.jpg" class="hero-marquee__media" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="absolute inset-0 z-[5]" style="background-color: rgba(0, 0, 0, 0.25);"></div>
 

@@ -196,3 +196,90 @@ if (flowCards.length) {
     if (e.key === 'Escape') close();
   });
 })();
+
+function setupHeroMarqueeVideos() {
+  const candidateGroups = ['heart-a', 'heart-c'];
+  const cooldownGroups = new Set();
+
+  function getItems(group) {
+    return Array.from(document.querySelectorAll(`[data-candidate-group="${group}"]`));
+  }
+
+  function resetGroup(group) {
+    const items = getItems(group);
+    items.forEach((item) => {
+      const video = item.querySelector('.hero-marquee__video');
+      item.classList.remove('is-playing');
+
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+      }
+    });
+  }
+
+  function pickNextGroup() {
+    const available = candidateGroups.filter((group) => !cooldownGroups.has(group));
+
+    if (!available.length) {
+      cooldownGroups.clear();
+      return candidateGroups[Math.floor(Math.random() * candidateGroups.length)];
+    }
+
+    return available[Math.floor(Math.random() * available.length)];
+  }
+
+  function playGroup(group) {
+    const items = getItems(group);
+    if (!items.length) return;
+
+    cooldownGroups.add(group);
+
+    items.forEach((item) => {
+      const video = item.querySelector('.hero-marquee__video');
+      item.classList.add('is-playing');
+
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+        video.loop = true;
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      }
+    });
+
+    window.setTimeout(() => {
+      items.forEach((item) => {
+        const video = item.querySelector('.hero-marquee__video');
+        item.classList.remove('is-playing');
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
+    }, 700);
+  }
+
+  candidateGroups.forEach((group) => resetGroup(group));
+
+  function cycleOnce() {
+    const nextGroup = pickNextGroup();
+    playGroup(nextGroup);
+  }
+
+  window.setTimeout(() => {
+    cycleOnce();
+    window.setInterval(() => {
+      cycleOnce();
+    }, 6500);
+  }, 3000);
+}
+
+window.addEventListener('load', setupHeroMarqueeVideos);
