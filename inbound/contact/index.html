@@ -30,18 +30,25 @@
     --shadow-accent: 0 6px 24px -6px rgba(255,107,0,0.32);
   }
   *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); }
+  html,body{ margin:0; padding:0; color:var(--text); }
+  html{ min-height: 100%; }
   body{
     font-family: "Noto Sans JP", "Inter", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
     font-feature-settings: "palt" 1;
     -webkit-font-smoothing: antialiased;
     min-height: 100svh;
-    /* 黒の多重グラデーション → 極薄オレンジのみ残す */
     background:
-      radial-gradient(800px 380px at 0% -5%, rgba(255,107,0,0.05), transparent 55%),
-      #FFFFFF;
+      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+      url('../assets/images/cbg.jpg') center / cover no-repeat fixed;
     line-height: 1.6;
     overflow-x: hidden;
+  }
+  @media (max-width: 767px){
+    body{
+      background:
+        linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+        url('../assets/images/cbg.jpg') center / cover no-repeat;
+    }
   }
 
   /* ===== Page frame ===== */
@@ -86,6 +93,9 @@
     line-height: 1.1;
     color: var(--text);
   }
+  .headline.accent{
+    color: #fff;
+  }
   .headline .accent{
     color: var(--accent);
     font-family: "Inter","Noto Sans JP",sans-serif;
@@ -93,7 +103,7 @@
     font-weight: 800;
   }
   .sub{
-    color: var(--text-mute);
+    color: #fff;
     font-size: 14.5px;
     line-height: 1.75;
     max-width: 42ch;
@@ -386,6 +396,14 @@
 
   :focus-visible{ outline: none; }
   .submit:focus-visible{ box-shadow: 0 0 0 3px rgba(255,107,0,0.28), var(--shadow-accent); }
+  .hp-field{
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 </style>
 </head>
 <body>
@@ -466,7 +484,11 @@
       <div id="formTitle" class="form-title"><span class="num">タビマエ・インバウンド</span>お問い合わせ情報</div>
     </div>
 
-    <form id="contactForm" novalidate>
+    <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLScVmW4dJUlXnluLrNkJANdOrhC26hXe7dKjBW-uuAx-9D1R-g/formResponse" method="post" novalidate>
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
 
       <!-- お名前 -->
       <div class="field" data-field>
@@ -474,7 +496,7 @@
           <label class="label" for="name">
             お名前 <span class="req">必須</span>
           </label>
-          <input class="input" id="name" name="name" type="text" autocomplete="name" required placeholder="山田 太郎">
+          <input class="input" id="name" name="entry.1261936099" type="text" autocomplete="name" required placeholder="山田 太郎">
           <span class="tick" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </span>
@@ -489,7 +511,7 @@
             <label class="label" for="company">
               会社名 <span class="req">必須</span>
             </label>
-            <input class="input" id="company" name="company" type="text" autocomplete="organization" required placeholder="株式会社サンプル">
+            <input class="input" id="company" name="entry.1798849015" type="text" autocomplete="organization" required placeholder="株式会社サンプル">
             <span class="tick" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
@@ -502,7 +524,7 @@
             <label class="label" for="dept">
               部署名 <span class="req">必須</span>
             </label>
-            <input class="input" id="dept" name="dept" type="text" autocomplete="organization-title" required placeholder="マーケティング部">
+            <input class="input" id="dept" name="entry.1472672526" type="text" autocomplete="organization-title" required placeholder="マーケティング部">
             <span class="tick" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
             </span>
@@ -517,7 +539,7 @@
           <label class="label" for="email">
             メールアドレス <span class="req">必須</span>
           </label>
-          <input class="input" id="email" name="email" type="email" inputmode="email" autocomplete="email" required placeholder="you@company.co.jp">
+          <input class="input" id="email" name="entry.1944686907" type="email" inputmode="email" autocomplete="email" required placeholder="you@company.co.jp">
           <span class="tick" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </span>
@@ -531,7 +553,7 @@
           <label class="label" for="tel">
             電話番号 <span class="opt">任意</span>
           </label>
-          <input class="input" id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="03-0000-0000">
+          <input class="input" id="tel" name="entry.1561255584" type="tel" inputmode="tel" autocomplete="tel" placeholder="03-0000-0000">
         </div>
         <p class="helper">お急ぎの場合はご記入ください。</p>
       </div>
@@ -542,7 +564,7 @@
           <label class="label" for="message">
             ご相談内容 <span class="opt">任意</span>
           </label>
-          <textarea class="textarea" id="message" name="message" rows="4" placeholder="例：サービス資料が欲しい／導入時期は3ヶ月以内／予算は…"></textarea>
+          <textarea class="textarea" id="message" name="entry.598951578" rows="4" placeholder="例：サービス資料が欲しい／導入時期は3ヶ月以内／予算は…"></textarea>
         </div>
         <p class="helper">ざっくりで構いません。詳細はこちらからヒアリングいたします。</p>
       </div>
@@ -625,7 +647,7 @@
   const btn = document.getElementById('submitBtn');
   const success = document.getElementById('success');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let allOk = true;
     fields.forEach(f => {
@@ -642,14 +664,43 @@
     const labelEl = btn.querySelector('.label-text');
     const origLabel = labelEl.textContent;
     labelEl.textContent = '送信中…';
-    setTimeout(() => {
+
+    const honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value.trim() !== '') {
       form.style.display = 'none';
       document.querySelector('.form-head').style.display = 'none';
       success.classList.add('is-on');
-      // reset state in case of re-open
       btn.disabled = false;
       labelEl.textContent = origLabel;
-    }, 900);
+      return;
+    }
+
+    const payload = new URLSearchParams();
+    payload.append('entry.1261936099', document.getElementById('name').value.trim());
+    payload.append('entry.1798849015', document.getElementById('company').value.trim());
+    payload.append('entry.1472672526', document.getElementById('dept').value.trim());
+    payload.append('entry.1944686907', document.getElementById('email').value.trim());
+    payload.append('entry.1561255584', document.getElementById('tel').value.trim());
+    payload.append('entry.598951578', document.getElementById('message').value.trim());
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: payload.toString()
+      });
+
+      form.style.display = 'none';
+      document.querySelector('.form-head').style.display = 'none';
+      success.classList.add('is-on');
+      btn.disabled = false;
+      labelEl.textContent = origLabel;
+    } catch (err) {
+      btn.disabled = false;
+      labelEl.textContent = origLabel;
+      alert('送信に失敗しました。通信環境をご確認のうえ、再度お試しください。');
+    }
   });
 </script>
 
