@@ -1271,7 +1271,7 @@ html {
 
 .site-menu__visual-copy {
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: 20px;
   transform: translateY(-50%);
   display: flex;
@@ -1500,7 +1500,7 @@ body.is-menu-open header > div > a {
 
   .site-menu__visual-copy {
     left: 14px;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     gap: 8px;
   }
@@ -1567,6 +1567,18 @@ body.is-menu-open header > div > a {
 }
 
 @media (max-width: 767px) {
+  .site-menu__layout {
+    grid-template-rows: 60dvh 40dvh;
+  }
+
+  .site-menu__visual {
+    min-height: 60dvh;
+  }
+
+  .site-menu__panel {
+    min-height: 40dvh;
+  }
+
   .site-menu__visual-title,
   .site-menu__visual-head {
     top: 24px;
@@ -1577,7 +1589,7 @@ body.is-menu-open header > div > a {
   }
 
   .site-menu__visual-copy {
-    top: 57%;
+    top: 56%;
     left: 20px;
     transform: translateY(-50%);
     gap: 6px;
@@ -1596,7 +1608,8 @@ body.is-menu-open header > div > a {
   }
 
   .site-menu__panel-body {
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 40px 28px;
   }
 
@@ -1604,10 +1617,18 @@ body.is-menu-open header > div > a {
     margin: 0 0 24px;
     font-size: 18px;
     line-height: 1.12;
+    text-align: left;
   }
 
   .site-menu__nav {
-    gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+    width: 100%;
+  }
+
+  .site-menu__link {
+    text-align: left;
   }
 }
 
