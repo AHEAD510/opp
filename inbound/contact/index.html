@@ -46,8 +46,40 @@
   @media (max-width: 767px){
     body{
       background:
-        linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)),
-        url('../assets/images/cbg.jpg') center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
+        url('../assets/images/cbg.jpg') center top / cover no-repeat !important;
+      background-attachment: scroll !important;
+    }
+
+    .lp-bottom{
+      max-width: 100% !important;
+      padding: 112px 20px 72px !important;
+      position: relative;
+    }
+
+    .lp-bottom::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.20), rgba(0,0,0,0.34));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .lp-bottom > *{
+      position: relative;
+      z-index: 1;
+    }
+
+    .card{
+      border-radius: 24px 24px 0 0 !important;
+      overflow: hidden;
+      background: rgba(255,255,255,0.97);
+    }
+
+    .foot{
+      margin-top: 24px;
+      padding-bottom: 0;
     }
   }
 
@@ -115,6 +147,18 @@
   .footer-visual-menu-list a {
     color: #fff;
     text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    .footer-visual-copy {
+      line-height: 0.9;
+    }
+
+    .fv-line-1,
+    .fv-line-2,
+    .fv-line-3 {
+      font-size: 22px;
+    }
   }
 
   /* ===== Section intro ===== */
@@ -728,24 +772,16 @@
           <a href="../index.html#services">Services</a>
         </p>
 
-        <a href="/contact/index.html" class="site-menu__visual-cta">
-          <img src="../assets/images/text.svg" alt="" aria-hidden="true">
-          <span>無料資料請求はこちらから</span>
-        </a>
       </div>
 
       <div class="site-menu__panel">
-        <div class="site-menu__panel-top">
-          <a href="/contact/index.html" class="site-menu__panel-cta">無料資料請求する</a>
-        </div>
-
         <div class="site-menu__panel-body">
           <p class="site-menu__title">ONE PAGE PARTNERS MENU</p>
           <nav class="site-menu__nav" aria-label="site-navigation">
             <a href="/opp/" class="site-menu__link">TOP</a>
             <a href="/opp/#news" class="site-menu__link">NEWS</a>
             <a href="/opp/message/" class="site-menu__link">MESSAGE</a>
-            <a href="../index.html#services" class="site-menu__link">SERVICES</a>
+            <a href="/opp/services/" class="site-menu__link">SERVICES</a>
             <a href="/opp/works/" class="site-menu__link">WORKS</a>
             <a href="/opp/team/" class="site-menu__link">TEAM</a>
             <a href="/opp/company/" class="site-menu__link">COMPANY</a>

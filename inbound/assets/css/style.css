@@ -1797,3 +1797,55 @@ body.is-menu-open header > div > a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+@media (max-width: 767px) {
+  .section-footer-visual {
+    height: 500px;
+  }
+
+  .section-footer-visual__bg {
+    object-position: center 22%;
+  }
+
+  .footer-visual-frame {
+    top: 14px;
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+  }
+
+  .footer-visual-brand {
+    left: 24px;
+    top: 22px;
+    max-width: 56%;
+    font-size: 13px;
+    line-height: 1.25;
+    z-index: 3;
+  }
+
+  .footer-visual-menu {
+    right: 24px;
+    top: 24px;
+    max-width: 40%;
+    z-index: 3;
+  }
+
+  .footer-visual-menu-title {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .footer-visual-menu-list {
+    margin-top: 12px;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .footer-visual-copy {
+    left: 24px;
+    right: 24px;
+    bottom: 26px;
+  }
+}
