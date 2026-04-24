@@ -11,7 +11,7 @@ html {
 }
 
 .typo-h1 {
-  font-size: 50px;
+  font-size: 48px;
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -210,7 +210,7 @@ html {
 
 @media (min-width: 768px) {
   .typo-h1 {
-    font-size: 72px;
+    font-size: 64px;
   }
 
   .typo-h2 {
