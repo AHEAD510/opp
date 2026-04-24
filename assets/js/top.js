@@ -1,6 +1,38 @@
 // ==========================================
 //   event
 // ==========================================
+/** ビューポート高さを CSS 変数と .js_heroBg に同期（下端の白帯対策。インライン指定で CSS より優先） */
+(function syncAppVhRoot() {
+  function readViewportHeightPx() {
+    var inner = window.innerHeight || 0;
+    var client = document.documentElement && document.documentElement.clientHeight;
+    var vv = window.visualViewport && window.visualViewport.height;
+    var h = Math.max(inner, client || 0, vv || 0);
+    /* サブピクセル・ツールバー変動で 1px 欠けるのを防ぐ */
+    return Math.ceil(h) + 2;
+  }
+  function syncAppVh() {
+    var h = readViewportHeightPx();
+    document.documentElement.style.setProperty("--app-vh", h * 0.01 + "px");
+    var hero = document.querySelector(".js_heroBg");
+    if (hero) {
+      hero.style.height = h + "px";
+      hero.style.minHeight = h + "px";
+    }
+  }
+  syncAppVh();
+  window.addEventListener("resize", syncAppVh);
+  window.addEventListener("orientationchange", syncAppVh);
+  window.addEventListener("load", syncAppVh);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", syncAppVh);
+  }
+  requestAnimationFrame(function () {
+    syncAppVh();
+    requestAnimationFrame(syncAppVh);
+  });
+})();
+
 function __oppNormalizedDocumentBase() {
   var u = new URL(document.baseURI);
   var p = u.pathname;

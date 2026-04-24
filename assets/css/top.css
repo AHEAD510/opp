@@ -51,17 +51,20 @@
   left: 0;
   z-index: 1;
 }
+/* aspect-ratio + width:100% だと縦が足りず下端に白が出ることがあるため、全面 cover に固定 */
 .tp_video_soure {
+  position: fixed;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  min-width: 100%;
   min-height: 100%;
-  aspect-ratio: 144/90;
+  max-width: none;
   -o-object-fit: cover;
   object-fit: cover;
   -o-object-position: top center;
   object-position: top center;
-  position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 0;
 }
 .tp_lineWrap {
   position: relative;
@@ -94,8 +97,17 @@
   display: grid;
   align-items: flex-end;
   width: 100%;
+  /* 実表示の高さに合わせ、下端のすき間（100vh と可視領域のズレ）を防ぐ */
+  height: 100vh;
   height: 100svh;
+  height: 100dvh;
+  /* top.js が innerHeight から設定（最後に指定して優先） */
+  height: calc(var(--app-vh, 1vh) * 100);
   min-height: 178.4vw;
+  min-height: max(178.4vw, 100vh);
+  min-height: max(178.4vw, 100svh);
+  min-height: max(178.4vw, 100dvh);
+  min-height: max(178.4vw, calc(var(--app-vh, 1vh) * 100));
   position: relative;
   overflow: clip;
 }
@@ -103,14 +115,19 @@
 .tp_hero::after {
   content: "";
   width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
 .tp_hero::before {
+  /* サブピクセルで下端が欠けるのを防ぐ */
+  height: calc(100% + 8px);
+  min-height: 100%;
   background: url(../img/top/kv_img.jpg) center top;
   background-size: cover;
+}
+.tp_hero::after {
+  height: 100%;
 }
 .tp_hero_book {
   display: inline-block;
@@ -124,7 +141,8 @@
 .tp_hero_opp {
   position: absolute;
   right: 0;
-  bottom: -3.4666666667vw;
+  /* 負の値だと .tp_hero の overflow:clip で下端が欠ける */
+  bottom: 4vw;
   z-index: 1;
 }
 .tp_hero_copy {
@@ -604,14 +622,21 @@
     display: grid;
     align-items: flex-end;
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
+    height: calc(var(--app-vh, 1vh) * 100);
     min-height: 700px;
+    min-height: max(700px, 100vh);
+    min-height: max(700px, 100svh);
+    min-height: max(700px, 100dvh);
+    min-height: max(700px, calc(var(--app-vh, 1vh) * 100));
   }
   .tp_hero_book {
     width: 175px;
     height: 128px;
   }
   .tp_hero_opp {
-    bottom: -43px;
+    bottom: clamp(24px, 3vw, 48px);
   }
   .tp_hero_copy {
     margin-bottom: 65px;
@@ -635,6 +660,8 @@
   }
   .tp_mssg_bg2 {
     height: 100vh;
+    height: 100svh;
+    height: 100dvh;
   }
   .tp_mssg_bg2::before,
   .tp_mssg_bg2::after {
@@ -985,6 +1012,8 @@
   .tp_hero_opp {
     width: 103.7333333333vw;
     left: -2.1333333333vw;
+    /* 負の bottom だと .tp_hero の overflow:clip で下端が欠けるため、SP では上に寄せる */
+    bottom: 8vw;
   }
   .tp_hero_copy {
     margin-top: auto;
@@ -992,6 +1021,7 @@
   }
   .tp_mssg_bg2 {
     height: 100svh;
+    height: 100dvh;
   }
   .tp_mssg_main {
     margin-bottom: 14.1333333333vw;
