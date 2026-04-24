@@ -1586,18 +1586,28 @@ body.is-menu-open header > div > a {
     transform: none;
     font-size: 18px;
     letter-spacing: 0.06em;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
   }
 
   .site-menu__visual-copy {
     top: 56%;
     left: 20px;
     transform: translateY(-50%);
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
     gap: 6px;
   }
 
   .site-menu__visual-copy a {
     font-size: clamp(52px, 14vw, 84px);
     line-height: 0.92;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45);
   }
 
   .site-menu__visual-cta {
@@ -1824,7 +1834,7 @@ body.is-menu-open header > div > a {
   }
 
   .footer-visual-menu {
-    right: 24px;
+    right: 28px;
     top: 24px;
     max-width: 40%;
     z-index: 3;
@@ -1833,7 +1843,9 @@ body.is-menu-open header > div > a {
   .footer-visual-menu-title {
     font-size: 11px;
     letter-spacing: 0.06em;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: right;
   }
 
   .footer-visual-menu-list {
