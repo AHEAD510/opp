@@ -1,0 +1,435 @@
+/* ===================================
+   NEWS LIST
+=================================== */
+.nw_list {
+  display: grid;
+  gap: 8vw;
+  padding: 16vw 4.2666666667vw 32vw;
+}
+
+/* 一覧カード：画像 → メタ（日付+カテゴリ）→ タイトル（グローバル .bl_card の order を解除） */
+body.news .bl_card_fig,
+body.news .bl_card_meta,
+body.news .bl_card_ttl {
+  order: unset;
+}
+
+body.news .bl_card_meta {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+body.news .bl_card_date {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #8a8a8a;
+  line-height: 1.2;
+}
+
+body.news .bl_card_ttl {
+  margin-top: 0;
+}
+
+/* 一覧カード hover（.tp_news_card 相当のマークアップは .bl_card / .bl_card_fig / img） */
+body.news .bl_card {
+  overflow: hidden;
+}
+
+/* サムネ角丸（.tp_news_thumb 相当 = .bl_card_fig）— hover 拡大時も親の overflow でクリップ */
+body.news .bl_card_fig {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+body.news .bl_card_fig img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.news .bl_card:hover .bl_card_fig img {
+    scale: unset;
+    transform: scale(1.03);
+    transform-origin: center center;
+  }
+}
+
+/* .nw_state の display:flex より [hidden] を優先（読み込み／エラーを確実に非表示） */
+.nw_state[hidden],
+.nw_det[hidden] {
+  display: none !important;
+}
+
+.nw_det_cate[hidden] {
+  display: none !important;
+}
+
+/* ===================================
+   NEWS DETAIL（ギャラリー／メディア記事風の余白・メタは控えめ・タイトル主役）
+=================================== */
+.nw_det {
+  padding: 0 5.3333333333vw 40vw;
+}
+
+/* メタ + タイトル（罫線は .nw_det_divider に分離） */
+.nw_det_header {
+  padding: clamp(28px, 8vw, 56px) 0 clamp(16px, 3.5vw, 28px);
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.nw_det_meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: clamp(12px, 2.8vw, 20px);
+  line-height: 1.25;
+}
+
+.nw_det_date {
+  font-size: 0.9375rem;
+  color: #9a9a9a;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.nw_det_cate {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  height: auto;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  padding: 5px 12px;
+  border: 1px solid rgba(13, 213, 235, 0.55);
+  border-radius: 999px;
+  color: #0dd5eb;
+  background: rgba(13, 213, 235, 0.04);
+}
+
+/* 一覧カード内カテゴリ（メタ行用・さらにコンパクト） */
+body.news .bl_card_cate {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  height: auto;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+  padding: 0.15em 0.38em 0.17em;
+  border: 1px solid #0dd5eb;
+  border-radius: 0.25rem;
+  color: #0dd5eb;
+}
+
+.nw_det_title {
+  font-size: clamp(1.75rem, 3vw, 2.875rem);
+  font-weight: bold;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* タイトル直下の細い区切り → サムネイル */
+.nw_det_divider {
+  height: 1px;
+  margin: clamp(24px, 4.5vw, 42px) 0 clamp(32px, 6vw, 64px);
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(13, 213, 235, 0.22) 20%,
+    rgba(27, 27, 27, 0.35) 50%,
+    rgba(13, 213, 235, 0.22) 80%,
+    transparent 100%
+  );
+}
+
+.nw_det_eyecatch {
+  margin: 0 0 clamp(36px, 7vw, 72px);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 0.2666666667vw;
+}
+
+.nw_det_eyecatch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Rich text body */
+.nw_det_body {
+  box-sizing: border-box;
+  max-width: 45rem;
+  width: 100%;
+  margin-inline: auto;
+  padding-top: clamp(8px, 2vw, 20px);
+  font-size: 1.0625rem;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  color: inherit;
+}
+
+.nw_det_body > :first-child {
+  margin-top: 0;
+}
+
+.nw_det_body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.nw_det_body h2 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 2.25em 0 1em;
+  padding-bottom: .5em;
+  border-bottom: 0.2666666667vw solid #1b1b1b;
+  line-height: 1.45;
+  letter-spacing: .05em;
+}
+
+.nw_det_body h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 1.75em 0 .85em;
+  color: #0dd5eb;
+  line-height: 1.45;
+}
+
+.nw_det_body p {
+  margin: 0 0 1.75em;
+}
+
+.nw_det_body p:last-child {
+  margin-bottom: 0;
+}
+
+.nw_det_body a {
+  color: #0dd5eb;
+  text-decoration: underline;
+}
+
+.nw_det_body img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em 0;
+  border-radius: 0.2666666667vw;
+}
+
+.nw_det_body ul,
+.nw_det_body ol {
+  padding-left: 1.35em;
+  margin: 0 0 1.75em;
+}
+
+.nw_det_body li {
+  margin-bottom: .65em;
+  line-height: inherit;
+}
+
+.nw_det_body li:last-child {
+  margin-bottom: 0;
+}
+
+.nw_det_body blockquote {
+  margin: 1.75em 0;
+  padding: 1.15em 1.35em;
+  border-left: 4px solid #0dd5eb;
+  background: rgba(13, 213, 235, .06);
+  color: #b0b0b0;
+  line-height: 1.85;
+}
+
+/* Back link */
+.nw_det_back {
+  margin-top: 16vw;
+}
+
+/* ===================================
+   STATES: loading / error / empty
+=================================== */
+.nw_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16vw 4.2666666667vw;
+  text-align: center;
+  color: #a0a0a0;
+  font-size: .875rem;
+  letter-spacing: .1em;
+}
+
+.nw_state.__error {
+  color: #c0392b;
+}
+
+.nw_loading_spinner {
+  display: block;
+  width: 8vw;
+  height: 8vw;
+  margin-bottom: 4vw;
+  border: 0.5333333333vw solid rgba(13, 213, 235, .2);
+  border-top-color: #0dd5eb;
+  border-radius: 50%;
+  animation: nw_spin .8s linear infinite;
+}
+
+@keyframes nw_spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media screen and (min-width: 821px) {
+  .nw_list {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    padding: 80px 120px 160px;
+  }
+
+  .nw_det {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 32px 160px;
+  }
+
+  .nw_det_header {
+    padding: clamp(40px, 5vw, 72px) 0 clamp(20px, 2.5vw, 32px);
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .nw_det_meta {
+    gap: 10px 16px;
+    margin-bottom: clamp(16px, 2vw, 22px);
+  }
+
+  .nw_det_date {
+    font-size: 0.9375rem;
+    letter-spacing: 0.08em;
+  }
+
+  body.news .bl_card_meta {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    gap: 8px 12px;
+  }
+
+  body.news .bl_card_date {
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+
+  body.news .bl_card_cate {
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    line-height: 1.15;
+    padding: 0.18em 0.45em 0.2em;
+    border-radius: 0.3125rem;
+  }
+
+  body.news .bl_card_ttl {
+    margin-top: 0;
+  }
+
+  .nw_det_cate {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    padding: 5px 14px;
+  }
+
+  .nw_det_divider {
+    margin: 42px 0 64px;
+  }
+
+  .nw_det_eyecatch {
+    margin-bottom: 64px;
+    border-radius: 1px;
+  }
+
+  .nw_det_body {
+    max-width: 720px;
+    padding-top: clamp(12px, 1.5vw, 24px);
+    font-size: 1.0625rem;
+    line-height: 2.1;
+    font-weight: 500;
+    color: inherit;
+  }
+
+  .nw_det_body h2 {
+    font-size: 1.5rem;
+    border-bottom-width: 1px;
+    margin-top: 2.5em;
+  }
+
+  .nw_det_body > h2:first-child {
+    margin-top: 0;
+  }
+
+  .nw_det_body h3 {
+    font-size: 1.25rem;
+  }
+
+  .nw_det_body p {
+    margin-bottom: 1.85em;
+  }
+
+  .nw_det_body img {
+    margin: 2em 0;
+    border-radius: 1px;
+  }
+
+  .nw_det_back {
+    margin-top: 80px;
+  }
+
+  .nw_state {
+    padding: 80px 40px;
+  }
+
+  .nw_loading_spinner {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-width: 2px;
+  }
+}
+
+@media screen and (min-width: 821px) and (max-width: 1279px) {
+  .nw_list {
+    padding: 80px 40px 160px;
+  }
+}

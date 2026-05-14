@@ -944,6 +944,9 @@
   .tp_news_next {
     width: 56px;
     height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 0.2s;
     cursor: pointer;
   }
@@ -1063,6 +1066,7 @@
   .tp_news_nav {
     margin-top: 10.1333333333vw;
     margin-right: 4.2666666667vw;
+    margin-bottom: 0;
     overflow: hidden;
   }
   .tp_news_arrow {
@@ -1070,10 +1074,14 @@
     gap: 0 2.1333333333vw;
   }
   .tp_news_btnWrap {
-    width: 44.8vw;
-    position: absolute;
-    right: 4.2666666667vw;
-    margin-top: -14.9333333333vw;
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    margin-top: 12vw;
+    margin-right: 0;
+    padding-right: 4.2666666667vw;
+    padding-left: 4.2666666667vw;
+    text-align: right;
     z-index: 1;
   }
 }
@@ -1166,14 +1174,16 @@
 
 .tp_news_thumb{
   position: relative;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .tp_news_thumb img{
   width: 100%;
-  height: auto;
-  display:block;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .tp_news_tag{
@@ -1237,12 +1247,17 @@
     }
   }
   
-  /* nav */
+  /* nav + 一覧ボタンの間隔 */
   .tp_news_nav {
     display: flex;
     align-items: center;
     gap: 16px;
     margin-top: 24px;
+    margin-bottom: clamp(12px, 2.5vw, 20px);
+  }
+
+  .tp_news_btnWrap {
+    margin-top: clamp(40px, 9vw, 72px);
   }
 
   .tp_news_arrow {
@@ -1267,6 +1282,9 @@
     appearance: none;
     -webkit-appearance: none;
     transition: background-color 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tp_news_nav .tp_news_prev:hover,
@@ -1274,7 +1292,14 @@
     background-color: rgba(255, 255, 255, 1) !important;
   }
 
-  /* arrow icon */
+  /* Swiper が付与する矢印（::after）— 自作 ::before と二重にならないよう無効化 */
+  .tp_news_nav .tp_news_prev::after,
+  .tp_news_nav .tp_news_next::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* 自作矢印（::before）— 円の幾何中心に配置 */
   .tp_news_nav .tp_news_prev::before,
   .tp_news_nav .tp_news_next::before {
     content: "";
@@ -1283,17 +1308,18 @@
     top: 50%;
     width: 10px;
     height: 10px;
-    margin-left: -5px;
-    margin-top: -5px;
+    margin: 0;
+    box-sizing: border-box;
     border-top: 2px solid rgba(0, 0, 0, 0.7);
     border-right: 2px solid rgba(0, 0, 0, 0.7);
+    transform-origin: center center;
   }
 
   .tp_news_nav .tp_news_prev::before {
-    transform: rotate(-135deg);
+    transform: translate(-50%, -50%) rotate(-135deg) translate(0.5px, 0.5px);
   }
   .tp_news_nav .tp_news_next::before {
-    transform: rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg) translate(-0.5px, 0.5px);
   }
   
   /* scrollbar */
@@ -1318,3 +1344,89 @@
     opacity: 0.35;
     cursor: default;
   }
+
+/* TOP NEWS:「NEWS一覧を見る」— 視認性のみ・ホバー演出・アニメーション無効（.tp_news_btnWrap 内のみ） */
+.tp_news_btnWrap .el_viewBtn,
+.tp_news_btnWrap .el_viewBtn .el_viewBtn_txt,
+.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrowWrap,
+.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrowOut,
+.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrow {
+  transition: none !important;
+  animation: none !important;
+}
+
+.tp_news_btnWrap .el_viewBtn_txt {
+  color: #0a5f78;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.tp_news_btnWrap .el_viewBtn_txt::after {
+  content: none !important;
+  display: none !important;
+}
+
+.tp_news_btnWrap .el_viewBtn_arrowWrap {
+  position: relative;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.72);
+  border: 1.5px solid rgba(86, 217, 253, 0.82);
+  box-shadow: 0 6px 28px rgba(86, 217, 253, 0.2);
+  border-radius: 50%;
+}
+
+.tp_news_btnWrap .el_viewBtn_arrowOut {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  transform: none !important;
+}
+
+.tp_news_btnWrap .el_viewBtn_arrow {
+  background-image: url(../img/common/arrow_r_md.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.35) contrast(1.02)
+    drop-shadow(0 0 0.5px rgba(86, 217, 253, 0.5));
+  transform: none !important;
+}
+
+/* グローバルの hover（色・矢印スライド・円の差し替え等）を同一見た目で上書き */
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt {
+  color: #0a5f78;
+}
+
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt::after {
+  content: none !important;
+  display: none !important;
+}
+
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrowWrap {
+  background: none;
+  background-color: rgba(255, 255, 255, 0.72);
+  background-image: none !important;
+  border-color: rgba(86, 217, 253, 0.82);
+  box-shadow: 0 6px 28px rgba(86, 217, 253, 0.2);
+}
+
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrowOut,
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrow {
+  transform: none !important;
+}
+
+.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrow {
+  background-image: url(../img/common/arrow_r_md.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.35) contrast(1.02)
+    drop-shadow(0 0 0.5px rgba(86, 217, 253, 0.5));
+}
+
+@media screen and (min-width: 821px) {
+  .tp_news_btnWrap .el_viewBtn_txt,
+  .tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt {
+    color: #094e63;
+  }
+}
