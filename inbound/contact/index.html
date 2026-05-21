@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RWTRD8F');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>お問い合わせ — タビマエ・インバウンド</title>
+<meta name="description" content="タビマエ・インバウンドは、訪日外国人が日本に来る前の情報収集に着目したインバウンド集客支援サービスです。SNS・インフルエンサー施策、LP制作、広告運用、MEO対策を横断し、旅前で選ばれる導線を設計します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../assets/css/style.css" />
+<style>
+  :root{
+    --bg:          #FFFFFF;
+    --bg-2:        #F6F6F5;
+    --bg-3:        #FFFFFF;
+    --line:        rgba(0,0,0,0.10);
+    --line-2:      rgba(0,0,0,0.18);
+    --text:        #1A1A1A;
+    --text-mute:   rgba(0,0,0,0.48);
+    --text-dim:    rgba(0,0,0,0.30);
+    --accent:      #FF6B00;
+    --accent-hi:   #FF8533;
+    --accent-glow: rgba(255,107,0,0.18);
+    --danger:      #D93025;
+    --ok:          #1A8A4A;
+    --radius:      12px;
+    --radius-lg:   18px;
+    --shadow-card: 0 2px 16px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-accent: 0 6px 24px -6px rgba(255,107,0,0.32);
+  }
+  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html,body{ margin:0; padding:0; color:var(--text); }
+  html{ min-height: 100%; }
+  body{
+    font-family: "Noto Sans JP", "Inter", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif;
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100svh;
+    background:
+      linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)),
+      url('../assets/images/cbg.jpg') center / cover no-repeat fixed;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  @media (max-width: 767px){
+    body{
+      background:
+        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
+        url('../assets/images/cbg.jpg') center top / cover no-repeat !important;
+      background-attachment: scroll !important;
+    }
+
+    .lp-bottom{
+      max-width: 100% !important;
+      padding: 112px 20px 72px !important;
+      position: relative;
+    }
+
+    .lp-bottom::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.20), rgba(0,0,0,0.34));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .lp-bottom > *{
+      position: relative;
+      z-index: 1;
+    }
+
+    .card{
+      border-radius: 24px 24px 0 0 !important;
+      overflow: hidden;
+      background: rgba(255,255,255,0.97);
+    }
+
+    .foot{
+      margin-top: 24px;
+      padding-bottom: 0;
+    }
+  }
+
+  /* ===== Page frame ===== */
+  .lp-bottom{
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 112px 20px 100px;
+    position: relative;
+  }
+  @media (min-width: 720px){
+    .lp-bottom{ max-width: 640px; padding: 144px 32px 140px; }
+  }
+
+  .inbound-contact-header{
+    color: #FFFFFF;
+  }
+  .inbound-contact-header .js-header-title-switch{
+    text-shadow: none !important;
+  }
+
+  .footer-visual-copy {
+    font-weight: 700;
+    line-height: 0.7;
+    color: rgba(255,255,255,0.95);
+  }
+
+  .fv-line-1,
+  .fv-line-2,
+  .fv-line-3 {
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.95;
+  }
+
+  .footer-visual-brand {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.85;
+    line-height: 1.4;
+  }
+
+  .footer-visual-menu {
+    color: rgba(255,255,255,0.85);
+  }
+
+  .footer-visual-menu-title {
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: #fff;
+    opacity: 1;
+    margin-bottom: 16px;
+  }
+
+  .footer-visual-menu-list li {
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+
+  .footer-visual-menu-list a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    .footer-visual-copy {
+      line-height: 0.9;
+    }
+
+    .fv-line-1,
+    .fv-line-2,
+    .fv-line-3 {
+      font-size: 22px;
+    }
+  }
+
+  /* ===== Section intro ===== */
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent);
+    padding: 8px 16px;
+    border: 1px solid rgba(255,107,0,0.45);
+    border-radius: 999px;
+    background: transparent;
+  }
+  .eyebrow::before{
+    content:""; width:5px; height:5px; border-radius:50%;
+    background:var(--accent);
+  }
+
+  .headline{
+    margin: 20px 0 12px;
+    font-weight: 700;
+    font-size: clamp(30px, 7.5vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .headline.accent{
+    color: #fff;
+  }
+  .headline .accent{
+    color: var(--accent);
+    font-family: "Inter","Noto Sans JP",sans-serif;
+    font-style: italic;
+    font-weight: 800;
+  }
+  .sub{
+    color: #fff;
+    font-size: 14.5px;
+    line-height: 1.75;
+    max-width: 42ch;
+    margin: 0 0 24px;
+  }
+  .sub--singleline{
+    white-space: normal;
+    max-width: 100%;
+    font-size: clamp(12px, 3.3vw, 14.5px);
+  }
+
+  /* ===== Trust strip ===== */
+  .trust{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-bottom: 28px;
+  }
+  .trust-chip{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.06em;
+    color: var(--text-mute);
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg-2);
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .trust-chip svg{ width:11px; height:11px; color: var(--ok); }
+
+  /* ===== Form card ===== */
+  .card{
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 26px 20px 22px;
+    /* 黒の重い影 → 白背景に自然な薄い影 */
+    box-shadow: var(--shadow-card);
+  }
+  @media (min-width: 720px){
+    .card{ padding: 36px 36px 30px; }
+  }
+  /* オレンジ角線：太さ・サイズを小さめに */
+  .card::before{
+    content:""; position:absolute; left: -1px; top: -1px;
+    width: 52px; height: 52px;
+    border-top: 1.5px solid var(--accent);
+    border-left: 1.5px solid var(--accent);
+    border-top-left-radius: var(--radius-lg);
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  .form-head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .form-title{
+    font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+  }
+  .form-title .num{
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent); margin-right: 7px;
+  }
+  .time-hint{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  /* ===== Fields ===== */
+  .field{
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .field-inner{
+    position: relative;
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: border-color .16s ease, box-shadow .16s ease;
+  }
+  .field-inner:hover{ border-color: var(--line-2); }
+
+  .label{
+    position: absolute;
+    top: 15px; left: 16px;
+    font-size: 14.5px;
+    color: var(--text-mute);
+    pointer-events: none;
+    transition: top .16s ease, font-size .16s ease, color .16s ease;
+    transform-origin: left center;
+    display:flex; align-items:center; gap:7px;
+  }
+  .req{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px; letter-spacing: 0.1em;
+    padding: 2px 5px; border-radius: 4px;
+    background: rgba(255,107,0,0.09);
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .opt{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9px; letter-spacing: 0.1em;
+    padding: 2px 5px; border-radius: 4px;
+    background: rgba(0,0,0,0.05);
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  .input, .textarea{
+    appearance:none; -webkit-appearance:none;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--text);
+    font: inherit;
+    font-size: 16px; /* iOS zoom 防止 */
+    padding: 26px 16px 10px;
+    border-radius: var(--radius);
+    font-family: inherit;
+    caret-color: var(--accent);
+  }
+  .textarea{ min-height: 128px; resize: vertical; line-height: 1.6; }
+
+  .input::placeholder, .textarea::placeholder{
+    color: transparent; transition: color .16s ease;
+  }
+
+  /* フローティングラベル */
+  .field-inner:focus-within .label,
+  .field.is-filled .label{
+    top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    color: var(--text-dim);
+  }
+  .field-inner:focus-within .label{ color: var(--accent); }
+  .field-inner:focus-within .input::placeholder,
+  .field-inner:focus-within .textarea::placeholder{
+    color: var(--text-dim);
+  }
+
+  /* フォーカスリング — bg 変化を削除、border + shadow のみ */
+  .field-inner:focus-within{
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.10);
+  }
+
+  /* バリデーション tick */
+  .field-inner .tick{
+    position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%) scale(0.6);
+    opacity: 0; color: var(--ok);
+    transition: opacity .16s ease, transform .16s ease;
+    pointer-events: none;
+  }
+  .field.is-valid .field-inner .tick{ opacity: 1; transform: translateY(-50%) scale(1); }
+
+  /* メール欄右端のブラウザ標準「鍵／自動入力」ボタンを非表示（自作のチェックは .tick のまま） */
+  #email::-webkit-credentials-auto-fill-button{
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  #email::-webkit-strong-password-auto-fill-button{
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+  #email::-webkit-contacts-auto-fill-button{
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    margin: 0;
+  }
+
+  /* エラー */
+  .field.is-error .field-inner{
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(217,48,37,0.08);
+  }
+  .field.is-error .label{ color: var(--danger); }
+  .error-msg{
+    display:none;
+    margin: 6px 4px 0;
+    font-size: 12px;
+    color: var(--danger);
+  }
+  .field.is-error .error-msg{ display:block; }
+
+  .helper{
+    margin: 5px 4px 0;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* 2カラム（デスクトップ） */
+  .row-2{
+    display: grid; grid-template-columns: 1fr; gap: 0;
+  }
+  @media (min-width: 720px){
+    .row-2{ grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row-2 .field{ margin-bottom: 12px; }
+  }
+
+  /* ===== 安心メッセージ ===== */
+  .reassure{
+    display:flex; gap:12px; align-items:flex-start;
+    margin: 18px 0 16px;
+    padding: 13px 15px;
+    /* dashed 破線 → solid 薄線、背景も白に近いグレー */
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg-2);
+  }
+  .reassure .ic{
+    flex:0 0 auto; width: 26px; height: 26px; border-radius: 7px;
+    background: rgba(255,107,0,0.08); color: var(--accent);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .reassure p{
+    margin:0; font-size: 12.5px; color: var(--text-mute); line-height: 1.65;
+  }
+  .reassure strong{ color: var(--text); font-weight: 600; }
+
+  /* ===== 送信ボタン ===== */
+  .actions{ margin-top: 20px; }
+  .submit{
+    position: relative;
+    margin-top: 24px;
+    width: 100%;
+    min-height: 56px;
+    padding: 16px 20px;
+    border: 0; border-radius: 13px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    display:flex; align-items:center; justify-content:center; gap: 10px;
+    overflow: hidden;
+    transition: transform .12s ease, box-shadow .18s ease, background .18s ease;
+    box-shadow: var(--shadow-accent);
+  }
+  .submit .arrow{ display:inline-flex; transition: transform .2s ease; }
+  .submit:hover{ background: var(--accent-hi); box-shadow: 0 8px 28px -6px rgba(255,107,0,0.38); }
+  .submit:hover .arrow{ transform: translateX(4px); }
+  .submit:active{ transform: scale(0.997); }
+  .submit:disabled{ opacity: 0.55; cursor: not-allowed; }
+  /* シマーは残す（ただし白の opacity を下げてソフトに） */
+  .submit::after{
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform .8s ease;
+  }
+  .submit:hover::after{ transform: translateX(120%); }
+
+  .legal{
+    margin-top: 12px;
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .legal a{ color: var(--text-mute); text-decoration: underline; text-underline-offset: 2px; }
+  .legal a:hover{ color: var(--accent); }
+  .consent-field{
+    margin-top: 14px;
+    margin-bottom: 6px;
+  }
+  .consent-box{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
+  }
+  .consent-field.is-error .consent-box{
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(217,48,37,0.08);
+  }
+  .consent-check{
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin: 2px 0 0;
+    border: 1.5px solid rgba(0,0,0,0.22);
+    border-radius: 6px;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    transition: border-color .16s ease, background .16s ease, box-shadow .16s ease;
+  }
+  .consent-check:checked{
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255,107,0,0.10);
+  }
+  .consent-check:checked::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .consent-label{
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text-mute);
+  }
+  .consent-label a{
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .consent-label a:hover{
+    color: var(--accent);
+  }
+  .consent-error{
+    display: none;
+    margin: 8px 4px 0 30px;
+    font-size: 12px;
+    color: var(--danger);
+  }
+  .consent-field.is-error .consent-error{
+    display: block;
+  }
+
+  /* ===== 送信完了 ===== */
+  .success{
+    display:none;
+    text-align:center;
+    padding: 36px 12px 20px;
+  }
+  .success.is-on{ display:block; animation: rise .5s ease both; }
+  @keyframes rise{ from{opacity:0; transform: translateY(8px)} to{opacity:1; transform:none} }
+  .success .ring{
+    width: 68px; height: 68px; border-radius: 50%;
+    margin: 0 auto 16px;
+    background: rgba(255,107,0,0.07);
+    border: 1px solid rgba(255,107,0,0.25);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--accent);
+  }
+  .success h3{ margin: 0 0 6px; font-size: 20px; letter-spacing: -0.01em; color: var(--text); }
+  .success p{ margin: 0; color: var(--text-mute); font-size: 14px; }
+  .success-back{
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .18s ease, transform .12s ease;
+  }
+  .success-back:hover{ background: var(--accent-hi); }
+  .success-back:active{ transform: scale(0.997); }
+
+  /* ===== フッター ===== */
+  .foot{
+    margin-top: 32px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  /* glow 削除 */
+  .foot .dot{
+    display:inline-block; width:5px; height:5px; border-radius:50%;
+    background: var(--ok);
+    margin-right: 7px;
+  }
+
+  :focus-visible{ outline: none; }
+  .submit:focus-visible{ box-shadow: 0 0 0 3px rgba(255,107,0,0.28), var(--shadow-accent); }
+  .hp-field{
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* ===== 法務モーダル ===== */
+  .legal-modal{
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  .legal-modal[hidden]{ display: none !important; }
+  .legal-modal__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    cursor: pointer;
+  }
+  .legal-modal__dialog{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 640px;
+    max-height: min(90vh, 720px);
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .legal-modal__header{
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: relative;
+    padding-right: 48px;
+  }
+  .legal-modal__tabs{
+    display: flex;
+    flex: 1;
+    min-width: 0;
+  }
+  .legal-modal__tab{
+    flex: 1;
+    margin: 0;
+    padding: 14px 12px;
+    border: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mute);
+    cursor: pointer;
+    transition: color .15s ease, background .15s ease;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .legal-modal__tab:hover{ color: var(--text); background: rgba(0,0,0,0.03); }
+  .legal-modal__tab.is-active{
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .legal-modal__close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 100%;
+    min-height: 48px;
+    border: 0;
+    background: transparent;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--text-dim);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .15s ease, background .15s ease;
+  }
+  .legal-modal__close:hover{ color: var(--text); background: rgba(0,0,0,0.04); }
+  .legal-modal__body{
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 22px 24px;
+  }
+  .legal-modal__panel{ display: none; }
+  .legal-modal__panel.is-active{ display: block; }
+  .legal-modal__panel h3{
+    margin: 0 0 14px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .legal-modal__panel h4{
+    margin: 20px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .legal-modal__panel h4:first-of-type{ margin-top: 0; }
+  .legal-modal__panel p{
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-mute);
+  }
+  .legal-modal__panel ul{
+    margin: 0 0 12px;
+    padding-left: 1.25em;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-mute);
+  }
+  .legal-modal__panel li{ margin-bottom: 4px; }
+  .legal a.legal-modal-trigger{ cursor: pointer; }
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RWTRD8F"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- Header -->
+  <header class="inbound-contact-header fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-6">
+    <a href="../" class="text-sm leading-tight js-header-title-switch inline-block">
+      <div class="font-medium">ONE PAGE PARTNERS</div>
+      <div class="font-semibold">タビマエ・インバウンド</div>
+    </a>
+
+    <div class="flex items-center gap-4 shrink-0">
+      <button type="button" class="site-menu-btn js-site-menu-btn" aria-controls="site-menu" aria-expanded="false" aria-label="メニューを開く">
+        <span class="site-menu-btn__icon" aria-hidden="true">
+          <span class="site-menu-btn__line"></span>
+          <span class="site-menu-btn__line"></span>
+          <span class="site-menu-btn__line"></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Drawer Menu -->
+  <div class="site-menu-overlay js-site-menu-overlay" hidden></div>
+  <aside class="site-menu js-site-menu" id="site-menu" aria-hidden="true">
+    <div class="site-menu__layout">
+      <div class="site-menu__visual">
+        <video class="site-menu__video" src="../assets/videos/menu.mp4" poster="../assets/images/ft.jpg" autoplay muted loop playsinline></video>
+        <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        <p class="site-menu__visual-title site-menu__visual-head">TABIMAE INBOUND MENU</p>
+
+        <div class="site-menu__visual-brand">
+          <p>ONE PAGE PARTNERS</p>
+          <p>タビマエ・インバウンド</p>
+        </div>
+
+        <p class="site-menu__visual-copy">
+          <a href="../index.html">Top</a>
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#services">Services</a>
+        </p>
+
+      </div>
+
+      <div class="site-menu__panel">
+        <div class="site-menu__panel-body">
+          <p class="site-menu__title">ONE PAGE PARTNERS MENU</p>
+          <nav class="site-menu__nav" aria-label="site-navigation">
+            <a href="../../" class="site-menu__link">TOP</a>
+            <!--  <a href="../../#news" class="site-menu__link">NEWS</a>-->
+            <a href="../../message/" class="site-menu__link">MESSAGE</a>
+            <a href="../../services/" class="site-menu__link">SERVICES</a>
+            <!-- <a href="../../works/" class="site-menu__link">WORKS</a>-->
+            <!-- <a href="../../team/" class="site-menu__link">TEAM</a> -->
+            <a href="../../company/" class="site-menu__link">COMPANY</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform" class="site-menu__link">CONTACT</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+<main class="lp-bottom">
+
+  <!-- Intro -->
+  <h2 class="headline accent">お問い合わせフォーム</h2>
+  <p class="sub sub--singleline">インバウンド集客に関するご相談・資料請求はこちらから。<br>
+    貴社の現状や課題を踏まえ、最適な戦略設計と実行プランをご提案いたします。
+    具体的な要件が固まっていない段階でも、どうぞお気軽にお問い合わせください。</p>
+
+  <!-- Form card -->
+  <section class="card" aria-labelledby="formTitle">
+    <div class="form-head">
+      <div id="formTitle" class="form-title"><span class="num">タビマエ・インバウンド</span>インバウンド施策の無料相談はこちら</div>
+    </div>
+
+    <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSczbCHWtUOWuK3cuaFp8ue76Ym6o9reu7o6rxZXJJcT4LwO3w/formResponse" method="post" novalidate>
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- お名前 -->
+      <div class="field" data-field>
+        <div class="field-inner">
+          <label class="label" for="name">
+            お名前 <span class="req">必須</span>
+          </label>
+          <input class="input" id="name" name="entry.635365004" type="text" autocomplete="name" required placeholder="山田 太郎">
+          <span class="tick" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+        </div>
+        <p class="error-msg">お名前を入力してください。</p>
+      </div>
+
+      <!-- 会社名 / 部署名 (2 col on desktop) -->
+      <div class="row-2">
+        <div class="field" data-field>
+          <div class="field-inner">
+            <label class="label" for="company">
+              会社名 <span class="req">必須</span>
+            </label>
+            <input class="input" id="company" name="entry.972864835" type="text" autocomplete="organization" required placeholder="株式会社サンプル">
+            <span class="tick" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+          </div>
+          <p class="error-msg">会社名を入力してください。</p>
+        </div>
+
+        <div class="field" data-field>
+          <div class="field-inner">
+            <label class="label" for="dept">
+              部署名 <span class="req">必須</span>
+            </label>
+            <input class="input" id="dept" name="entry.1432385406" type="text" autocomplete="organization-title" required placeholder="マーケティング部">
+            <span class="tick" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+          </div>
+          <p class="error-msg">部署名を入力してください。</p>
+        </div>
+      </div>
+
+      <!-- メール -->
+      <div class="field" data-field>
+        <div class="field-inner">
+          <label class="label" for="email">
+            メールアドレス <span class="req">必須</span>
+          </label>
+          <input class="input" id="email" name="entry.99901974" type="text" inputmode="email" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" data-lpignore="true" data-1p-ignore data-form-type="other" required placeholder="you@company.co.jp">
+          <span class="tick" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+        </div>
+        <p class="error-msg">有効なメールアドレスを入力してください。</p>
+      </div>
+
+      <!-- 電話 -->
+      <div class="field" data-field>
+        <div class="field-inner">
+          <label class="label" for="tel">
+            電話番号 <span class="opt">任意</span>
+          </label>
+          <input class="input" id="tel" name="entry.1994618974" type="tel" inputmode="tel" autocomplete="tel" placeholder="03-0000-0000">
+        </div>
+        <p class="helper">お急ぎの場合はご記入ください。</p>
+      </div>
+
+      <!-- その他 -->
+      <div class="field" data-field>
+        <div class="field-inner">
+          <label class="label" for="message">
+            ご相談内容 <span class="opt">任意</span>
+          </label>
+          <textarea class="textarea" id="message" name="entry.635365004" rows="4" placeholder="例：サービス資料が欲しい／導入時期は3ヶ月以内／予算は…"></textarea>
+        </div>
+        <p class="helper"> 概要のみで構いません。後ほど最適なご提案に向けてヒアリングいたします。</p>
+      </div>
+
+      <div class="actions">
+        <div class="consent-field" id="consentField">
+          <div class="consent-box">
+            <input class="consent-check" type="checkbox" id="privacyConsent" name="entry.1110879727" value="プライバシーポリシーに同意する" required>
+            <label class="consent-label" for="privacyConsent">
+              <a href="#" class="legal-modal-trigger" data-legal-tab="privacy">プライバシーポリシー</a>に同意する
+            </label>
+          </div>
+          <p class="consent-error">プライバシーポリシーへの同意が必要です。</p>
+        </div>
+        <button class="submit" type="submit" id="submitBtn">
+          <span class="label-text">無料で問い合わせる</span>
+          <span class="arrow" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 5 7 7-7 7"/></svg>
+          </span>
+        </button>
+        <p class="legal">
+          送信前に <a href="#" class="legal-modal-trigger" data-legal-tab="privacy">プライバシーポリシー</a> と <a href="#" class="legal-modal-trigger" data-legal-tab="terms">利用規約</a> をご確認ください。
+        </p>
+      </div>
+    </form>
+
+    <!-- Success -->
+    <div class="success" id="success" role="status" aria-live="polite">
+      <div class="ring">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3>送信が完了しました。</h3>
+      <p>担当者より1営業日以内にご連絡いたします。<br><br>※万が一返信がない場合は、<br>迷惑メールフォルダをご確認ください。</p>
+      <a class="success-back" href="../index.html">TOPへ戻る</a>
+    </div>
+  </section>
+
+</main>
+
+<section class="section-footer-visual" aria-label="フッター直前ビジュアル">
+  <img src="../assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
+  <div class="footer-visual-overlay" aria-hidden="true"></div>
+  <div class="footer-visual-frame" aria-hidden="true"></div>
+
+  <div class="footer-visual-brand">
+    <p>タビマエ・インバウンド</p>
+    <p>by ONE PAGE PARTNERS</p>
+  </div>
+
+  <p class="footer-visual-copy">
+    <span class="fv-line fv-line-1">次に行きたいと</span><br>
+    <span class="fv-line fv-line-2">思ったその瞬間、</span><br>
+    <span class="fv-line fv-line-3">もう貴社の魅力は伝わっている。</span>
+  </p>
+
+  <div class="footer-visual-menu">
+    <p class="footer-visual-menu-title">ONE PAGE PARTNERS MENU</p>
+    <ul class="footer-visual-menu-list">
+      <li><a href="../../">TOP</a></li>
+      <!-- <li><a href="../../#news">NEWS</a></li>-->
+      <li><a href="../../message/">MESSAGE</a></li>
+      <li><a href="../../services/">SERVICES</a></li>
+      <!--<li><a href="../../works/">WORKS</a></li>-->
+      <!-- <li><a href="../../team/">TEAM</a></li> -->
+      <li><a href="../../company/">COMPANY</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSczbCHWtUOWuK3cuaFp8ue76Ym6o9reu7o6rxZXJJcT4LwO3w/viewform">CONTACT</a></li>
+    </ul>
+  </div>
+</section>
+
+<div id="legalModal" class="legal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="legalModalPrivacyTitle">
+  <div class="legal-modal__backdrop js-legal-modal-close" aria-hidden="true"></div>
+  <div class="legal-modal__dialog">
+    <div class="legal-modal__header">
+      <div class="legal-modal__tabs" role="tablist" aria-label="法務情報">
+        <button type="button" class="legal-modal__tab is-active" role="tab" id="legalModalPrivacyTitle" aria-selected="true" aria-controls="legalPanelPrivacy" data-legal-tab="privacy">プライバシーポリシー</button>
+        <button type="button" class="legal-modal__tab" role="tab" id="legalModalTermsTitle" aria-selected="false" aria-controls="legalPanelTerms" data-legal-tab="terms">利用規約</button>
+      </div>
+      <button type="button" class="legal-modal__close js-legal-modal-close" aria-label="閉じる">×</button>
+    </div>
+    <div class="legal-modal__body">
+      <div id="legalPanelPrivacy" class="legal-modal__panel is-active" role="tabpanel" aria-labelledby="legalModalPrivacyTitle" aria-hidden="false">
+<h3>プライバシーポリシー</h3>
+
+<p>ONE PAGE PARTNERS株式会社（以下「当社」といいます）は、お客様の個人情報の重要性を認識し、適切に取り扱うことを社会的責務と考え、以下の方針に基づき個人情報を管理します。</p>
+
+<h4>1. 取得する情報</h4>
+<p>当社は、お問い合わせフォームを通じて以下の情報を取得します。</p>
+<ul>
+<li>お名前</li>
+<li>会社名</li>
+<li>部署名</li>
+<li>メールアドレス</li>
+<li>電話番号</li>
+<li>お問い合わせ内容</li>
+</ul>
+
+<h4>2. 利用目的</h4>
+<p>取得した情報は以下の目的で使用します。</p>
+<ul>
+<li>お問い合わせへの回答・ご連絡のため</li>
+<li>サービスに関する資料送付のため</li>
+<li>必要に応じたご案内のため</li>
+</ul>
+
+<p>※営業目的での不要なご連絡は行いません。</p>
+
+<h4>3. 第三者提供について</h4>
+<p>当社は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+
+<h4>4. 安全管理</h4>
+<p>当社は、個人情報の漏洩・紛失・改ざんを防ぐため、適切な安全管理措置を講じます。</p>
+
+<h4>5. 開示・訂正・削除</h4>
+<p>お客様ご本人からの請求があった場合、適切に対応いたします。</p>
+
+<h4>6. お問い合わせ窓口</h4>
+<p>
+ONE PAGE PARTNERS株式会社<br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform" target="_blank" rel="noopener noreferrer">お問い合わせはこちら</a>
+</p>
+
+<h4>7. 改定について</h4>
+<p>本ポリシーは必要に応じて変更されることがあります。</p>
+      </div>
+      <div id="legalPanelTerms" class="legal-modal__panel" role="tabpanel" aria-labelledby="legalModalTermsTitle" aria-hidden="true">
+<h3>利用規約</h3>
+
+<p>本サイトをご利用いただくにあたり、以下の内容に同意いただいたものとみなします。</p>
+
+<h4>1. サービスについて</h4>
+<p>当サイトは、タビマエ・インバウンドに関する情報提供およびお問い合わせ受付を目的としています。</p>
+
+<h4>2. 禁止事項</h4>
+<ul>
+<li>虚偽の情報の送信</li>
+<li>不正な目的での利用</li>
+<li>第三者への迷惑行為</li>
+</ul>
+
+<h4>3. 免責事項</h4>
+<p>当サイトの情報は可能な限り正確な内容を掲載していますが、その正確性・安全性を保証するものではありません。</p>
+
+<h4>4. 損害について</h4>
+<p>本サイトの利用により生じた損害について、当社は一切の責任を負いません。</p>
+
+<h4>5. 内容変更</h4>
+<p>本規約は予告なく変更される場合があります。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Floating label "is-filled"
+  const fields = document.querySelectorAll('[data-field]');
+  fields.forEach(f => {
+    const input = f.querySelector('.input, .textarea');
+    if(!input) return;
+    const sync = () => {
+      f.classList.toggle('is-filled', input.value.trim() !== '');
+    };
+    input.addEventListener('input', sync);
+    input.addEventListener('blur', () => {
+      // live-validate on blur if has content or required
+      validateField(f, true);
+      sync();
+    });
+    input.addEventListener('focus', () => {
+      f.classList.remove('is-error');
+    });
+    sync();
+  });
+
+  function validateField(f, fromBlur){
+    const input = f.querySelector('.input, .textarea');
+    if(!input) return true;
+    const val = input.value.trim();
+    const required = input.hasAttribute('required');
+    let ok = true;
+
+    if(required && val === ''){ ok = false; }
+    const isEmailField = input.id === 'email';
+    if(isEmailField && val !== ''){
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!re.test(val)) ok = false;
+    }
+
+    f.classList.toggle('is-error', !ok);
+    f.classList.toggle('is-valid', ok && val !== '' && (required || isEmailField));
+    return ok;
+  }
+
+  // Submit
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const success = document.getElementById('success');
+  const consentField = document.getElementById('consentField');
+  const consentInput = document.getElementById('privacyConsent');
+
+  function validateConsent() {
+    if (!consentInput) return true;
+    const ok = consentInput.checked;
+    if (consentField) {
+      consentField.classList.toggle('is-error', !ok);
+    }
+    return ok;
+  }
+
+  if (consentInput) {
+    consentInput.addEventListener('change', () => {
+      if (consentInput.checked && consentField) {
+        consentField.classList.remove('is-error');
+      }
+    });
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    let allOk = true;
+    fields.forEach(f => {
+      if(!validateField(f, false)) allOk = false;
+    });
+    if (!validateConsent()) {
+      allOk = false;
+    }
+    if(!allOk){
+      const firstErr = form.querySelector('.is-error .input, .is-error .textarea');
+      if(firstErr) {
+        firstErr.focus();
+      } else if (consentInput && consentField && consentField.classList.contains('is-error')) {
+        consentInput.focus();
+        consentField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+    // simulate send
+    btn.disabled = true;
+    const labelEl = btn.querySelector('.label-text');
+    const origLabel = labelEl.textContent;
+    labelEl.textContent = '送信中…';
+
+    const honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value.trim() !== '') {
+      form.style.display = 'none';
+      document.querySelector('.form-head').style.display = 'none';
+      success.classList.add('is-on');
+      btn.disabled = false;
+      labelEl.textContent = origLabel;
+      return;
+    }
+
+    const payload = new URLSearchParams();
+    const nameValue = document.getElementById('name').value.trim();
+    const messageValue = document.getElementById('message').value.trim();
+    const mergedMessage = [nameValue ? `お名前: ${nameValue}` : '', messageValue ? `ご相談内容: ${messageValue}` : '']
+      .filter(Boolean)
+      .join('\n');
+
+    payload.append('entry.972864835', document.getElementById('company').value.trim());
+    payload.append('entry.1432385406', document.getElementById('dept').value.trim());
+    payload.append('entry.99901974', document.getElementById('email').value.trim());
+    payload.append('entry.1994618974', document.getElementById('tel').value.trim());
+    payload.append('entry.635365004', mergedMessage);
+    if (consentInput && consentInput.checked) {
+      payload.append('entry.1110879727', consentInput.value);
+    }
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: payload.toString()
+      });
+
+      form.style.display = 'none';
+      document.querySelector('.form-head').style.display = 'none';
+      success.classList.add('is-on');
+      btn.disabled = false;
+      labelEl.textContent = origLabel;
+    } catch (err) {
+      btn.disabled = false;
+      labelEl.textContent = origLabel;
+      alert('送信に失敗しました。通信環境をご確認のうえ、再度お試しください。');
+    }
+  });
+
+  (function () {
+    const modal = document.getElementById('legalModal');
+    if (!modal) return;
+    const tabEls = modal.querySelectorAll('.legal-modal__tab[data-legal-tab]');
+    const panels = {
+      privacy: document.getElementById('legalPanelPrivacy'),
+      terms: document.getElementById('legalPanelTerms')
+    };
+
+    function setTab(name) {
+      const key = name === 'terms' ? 'terms' : 'privacy';
+      tabEls.forEach(tab => {
+        const on = tab.dataset.legalTab === key;
+        tab.classList.toggle('is-active', on);
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      Object.entries(panels).forEach(([k, el]) => {
+        if (!el) return;
+        const on = k === key;
+        el.classList.toggle('is-active', on);
+        el.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+    }
+
+    function open(which) {
+      setTab(which || 'privacy');
+      modal.removeAttribute('hidden');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const active = modal.querySelector('.legal-modal__tab.is-active');
+      if (active) active.focus();
+    }
+
+    function close() {
+      modal.setAttribute('hidden', '');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.legal-modal-trigger').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        open(a.getAttribute('data-legal-tab'));
+      });
+    });
+
+    tabEls.forEach(tab => {
+      tab.addEventListener('click', () => setTab(tab.dataset.legalTab));
+    });
+
+    modal.querySelectorAll('.js-legal-modal-close').forEach(el => {
+      el.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !modal.hasAttribute('hidden')) close();
+    });
+  })();
+</script>
+
+</body>
+</html>

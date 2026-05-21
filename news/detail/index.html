@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5RWTRD8F');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8">
+<title>NEWS | ONE PAGE PARTNERS</title>
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="ONE PAGE PARTNERSのニュース詳細です。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEWS | ONE PAGE PARTNERS">
+<meta property="og:image" content="../../ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- favicon -->
+<link rel="icon" href="../../favicon.ico">
+<!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- CSS -->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/news.css">
+</head>
+<body class="news-detail" id="pagetop">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RWTRD8F"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- header ///////////////////////////////////-->
+<header class="ly_header js_header">
+  <p class="bl_headerLogo">
+    <a href="../../" class="bl_headerLogo_link">
+      <img src="../../assets/img/common/logo_wht.svg" alt="ONE PAGE PARTNERS" width="228">
+    </a>
+  </p>
+  <nav class="bl_gnav" aria-label="main-navigation">
+    <button type="button" class="bl_gnav_btn" id="js_gnavBtn" aria-controls="global-navigation" aria-expanded="false" aria-label="メニューを開閉"></button>
+    <div class="bl_gnav_body js_gnav" id="global-navigation" aria-hidden="true">
+      <p class="bl_gnav_logo none-lg">
+        <img src="../../assets/img/common/logo_wht.svg" alt="ONE PAGE PARTNERS" width="228">
+      </p>
+      <ul class="bl_gnav_list js_gnavList">
+        <li class="bl_gnav_item js_gnavItem none-lg">
+          <a href="../../" class="bl_gnav_link">Top</a>
+        </li>
+        <li class="bl_gnav_item js_gnavItem">
+          <a href="../../news/" class="bl_gnav_link is_current" aria-current="page">News</a>
+        </li>
+        <li class="bl_gnav_item js_gnavItem">
+          <a href="../../message/" class="bl_gnav_link">Message</a>
+        </li>
+        <li class="bl_gnav_item js_gnavItem">
+          <a href="../../services/" class="bl_gnav_link">Services</a>
+        </li>
+        <li class="bl_gnav_item js_gnavItem">
+          <a href="../../inbound/" class="bl_gnav_link">TABIMAE INBOUND</a>
+        </li>
+        <li class="bl_gnav_item js_gnavItem">
+          <a href="../../company/" class="bl_gnav_link">Company</a>
+        </li>
+        <li class="bl_gnav_item __contact">
+          <a href="#cta" class="bl_gnav_link __contact"><span>Contact</span></a>
+        </li>
+      </ul>
+    </div><!-- /.bl_gnav_body -->
+  </nav><!-- /.bl_gnav -->
+</header><!-- /.ly_header -->
+<!-- main ///////////////////////////////////-->
+<main class="ly_main">
+  <canvas class="js_traislLine" id="js_trail"></canvas>
+  <header class="ly_main_header">
+    <h1 class="el_lv1Heading">News</h1>
+    <nav class="bl_breadcrumb" aria-label="パンくずリスト">
+      <ol class="bl_breadcrumb_list">
+        <li><a href="../../">Top</a></li>
+        <li><a href="../">News</a></li>
+        <li id="js_newsBcTitle" class="__over">記事詳細</li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- Loading state -->
+  <div id="js_newsLoading" class="nw_state" aria-live="polite">
+    <span class="nw_loading_spinner" aria-hidden="true"></span>
+    <span>読み込み中...</span>
+  </div>
+
+  <!-- Error state -->
+  <div id="js_newsError" class="nw_state __error" hidden aria-live="assertive">
+    <p>記事の読み込みに失敗しました。<br>しばらく経ってから再度お試しください。</p>
+    <p style="margin-top:2em;">
+      <a href="../" style="color:#0dd5eb;">← ニュース一覧に戻る</a>
+    </p>
+  </div>
+
+  <!-- Article detail (hidden until JS populates) -->
+  <article id="js_newsDetail" class="nw_det" hidden>
+    <!-- Article header -->
+    <div class="nw_det_header">
+      <div class="nw_det_meta">
+        <time id="js_newsDate" class="nw_det_date" datetime=""></time>
+        <span id="js_newsCate" class="nw_det_cate" hidden></span>
+      </div>
+      <h2 id="js_newsTitle" class="nw_det_title"></h2>
+    </div>
+
+    <div class="nw_det_divider" aria-hidden="true"></div>
+
+    <!-- Eyecatch image -->
+    <figure id="js_newsEyecatchWrap" class="nw_det_eyecatch" hidden>
+      <img id="js_newsEyecatch" src="" alt="" width="1200">
+    </figure>
+
+    <!-- Body -->
+    <div id="js_newsBody" class="nw_det_body"></div>
+
+    <!-- Back link -->
+    <div class="nw_det_back">
+      <a href="../" class="el_btn __sm">
+        <span class="el_btn_txt">← ニュース一覧</span>
+      </a>
+    </div>
+  </article>
+
+</main>
+<!-- contact ///////////////////////////////////-->
+<div class="bl_contact">
+  <a href="#cta" class="bl_contact_link">
+    <span>お問い合わせ</span>
+  </a>
+</div>
+<!-- CTA ///////////////////////////////////-->
+<aside class="bl_cta" aria-label="お問い合わせ" id="cta">
+  <ul class="bl_cta_list">
+    <li class="bl_cta_item">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform" class="bl_cta_link __client" target="_blank">
+        <span class="bl_cta_frame">
+          <span class="bl_cta_label">Client</span>
+          <span class="bl_cta_txt">一般のお問い合わせ</span>
+        </span>
+      </a>
+    </li>
+    <li class="bl_cta_item">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0GQdELuXQvGcdaePoj1xAbyfPow1cGOiyQ8gmlX3S4iAbyg/viewform" class="bl_cta_link __creator" target="_blank">
+        <span class="bl_cta_frame">
+          <span class="bl_cta_label">Creator</span>
+          <span class="bl_cta_txt">
+            所属をご希望のクリエイターの方は、こちらからお問い合わせ・ご相談ください
+          </span>
+        </span>
+      </a>
+    </li>
+  </ul>
+</aside>
+<!-- footer ///////////////////////////////////-->
+<footer class="ly_footer">
+  <div class="ly_footer_inner">
+    <p class="bl_footerLogo none-md">
+      <a href="../../" class="bl_footerLogo_link">
+        <img src="../../assets/img/common/logo_wht.svg" alt="ONE PAGE PARTNERS" width="276">
+      </a>
+    </p>
+    <div class="ly_footer_left">
+      <p class="bl_footerLogo none-d-md">
+        <a href="../../" class="bl_footerLogo_link">
+          <img src="../../assets/img/common/logo_wht.svg" alt="ONE PAGE PARTNERS" width="276">
+        </a>
+      </p>
+    </div>
+    <div class="ly_footer_right">
+      <nav class="bl_footerNav" aria-label="フッターナビゲーション">
+        <ul class="bl_footerNav_list">
+          <li class="bl_footerNav_item">
+            <a href="../../news/" class="bl_footerNav_link">News</a>
+          </li>
+          <li class="bl_footerNav_item">
+            <a href="../../message/" class="bl_footerNav_link">Message</a>
+          </li>
+          <li class="bl_footerNav_item">
+            <a href="../../services/" class="bl_footerNav_link">Services</a>
+          </li>
+          <li class="bl_footerNav_item">
+            <a href="../../inbound/" class="bl_footerNav_link">TABIMAE INBOUND</a>
+          </li>
+          <li class="bl_footerNav_item">
+            <a href="../../company/" class="bl_footerNav_link">Company</a>
+          </li>
+          <li class="bl_footerNav_item">
+            <a href="../../contact/" class="bl_footerNav_link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <p class="bl_footerCopyright">
+    <small>©︎2026 ONE PAGE PARTNERS Inc. All rights reserved.</small>
+  </p>
+</footer>
+<!-- js ///////////////////////////////////-->
+<script src="../../assets/lib/jquery.js"></script>
+<script src="../../assets/lib/lottie.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<script src="../../assets/js/cms-config.js"></script>
+<script src="../../assets/js/news.js"></script>
+</body>
+</html>
