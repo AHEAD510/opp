@@ -132,6 +132,60 @@
     var DEFAULT_LIST_THUMB = '../ogp.jpg';
     var loadingEl = document.getElementById('js_worksLoading');
     var errorEl = document.getElementById('js_worksError');
+    var cateFilterEl = document.getElementById('js_worksCateFilter');
+    var allWorks = [];
+    var selectedCategory = 'all';
+    var cateFilterBound = false;
+
+    function itemMatchesCategory(item, category) {
+      if (category === 'all') return true;
+      var labels = categoriesToLabels(item.category);
+      return labels.indexOf(category) !== -1;
+    }
+
+    function filterWorks(works, category) {
+      if (category === 'all') return works;
+      return works.filter(function (item) {
+        return itemMatchesCategory(item, category);
+      });
+    }
+
+    function setActiveCategoryButton(category) {
+      if (!cateFilterEl) return;
+      var buttons = cateFilterEl.querySelectorAll('[data-category]');
+      buttons.forEach(function (btn) {
+        var isActive = btn.getAttribute('data-category') === category;
+        if (isActive) {
+          btn.classList.add('__current');
+        } else {
+          btn.classList.remove('__current');
+        }
+      });
+    }
+
+    function renderWorksList(works) {
+      if (!works.length) {
+        listEl.innerHTML =
+          '<li class="wrk_item"><div class="card_main wrk_empty"><p>該当する実績はありません。</p></div></li>';
+        return;
+      }
+      listEl.innerHTML = works.map(renderCard).join('');
+    }
+
+    function initCategoryFilter() {
+      if (!cateFilterEl || cateFilterBound) return;
+      cateFilterBound = true;
+      cateFilterEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-category]');
+        if (!btn) return;
+        e.preventDefault();
+        var category = btn.getAttribute('data-category');
+        if (!category || category === selectedCategory) return;
+        selectedCategory = category;
+        setActiveCategoryButton(category);
+        renderWorksList(filterWorks(allWorks, category));
+      });
+    }
 
     function buildCategoryHtml(category) {
       var labels = categoriesToLabels(category);
@@ -197,12 +251,17 @@
         if (errorEl) hideStateEl(errorEl);
 
         if (!data.contents || data.contents.length === 0) {
+          allWorks = [];
           listEl.innerHTML =
             '<li class="wrk_item"><div class="card_main wrk_empty"><p>実績はまだありません。</p></div></li>';
           return;
         }
 
-        listEl.innerHTML = data.contents.map(renderCard).join('');
+        allWorks = data.contents;
+        selectedCategory = 'all';
+        setActiveCategoryButton('all');
+        renderWorksList(allWorks);
+        initCategoryFilter();
       })
       .catch(function (err) {
         console.error('Works list fetch error:', err);
