@@ -1345,88 +1345,15 @@
     cursor: default;
   }
 
-/* TOP NEWS:「NEWS一覧を見る」— 視認性のみ・ホバー演出・アニメーション無効（.tp_news_btnWrap 内のみ） */
-.tp_news_btnWrap .el_viewBtn,
-.tp_news_btnWrap .el_viewBtn .el_viewBtn_txt,
-.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrowWrap,
-.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrowOut,
-.tp_news_btnWrap .el_viewBtn .el_viewBtn_arrow {
-  transition: none !important;
-  animation: none !important;
-}
-
+/* TOP NEWS:「NEWS一覧を見る」— View Details と同じアイコン・ホバー（文言のみ差し替え） */
 .tp_news_btnWrap .el_viewBtn_txt {
   color: #0a5f78;
   font-weight: 600;
   letter-spacing: 0.1em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
-}
-
-.tp_news_btnWrap .el_viewBtn_txt::after {
-  content: none !important;
-  display: none !important;
-}
-
-.tp_news_btnWrap .el_viewBtn_arrowWrap {
-  position: relative;
-  background: none;
-  background-color: rgba(255, 255, 255, 0.72);
-  border: 1.5px solid rgba(86, 217, 253, 0.82);
-  box-shadow: 0 6px 28px rgba(86, 217, 253, 0.2);
-  border-radius: 50%;
-}
-
-.tp_news_btnWrap .el_viewBtn_arrowOut {
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: transparent;
-  transform: none !important;
-}
-
-.tp_news_btnWrap .el_viewBtn_arrow {
-  background-image: url(../img/common/arrow_r_md.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  filter: brightness(0.35) contrast(1.02)
-    drop-shadow(0 0 0.5px rgba(86, 217, 253, 0.5));
-  transform: none !important;
-}
-
-/* グローバルの hover（色・矢印スライド・円の差し替え等）を同一見た目で上書き */
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt {
-  color: #0a5f78;
-}
-
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt::after {
-  content: none !important;
-  display: none !important;
-}
-
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrowWrap {
-  background: none;
-  background-color: rgba(255, 255, 255, 0.72);
-  background-image: none !important;
-  border-color: rgba(86, 217, 253, 0.82);
-  box-shadow: 0 6px 28px rgba(86, 217, 253, 0.2);
-}
-
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrowOut,
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrow {
-  transform: none !important;
-}
-
-.tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_arrow {
-  background-image: url(../img/common/arrow_r_md.svg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  filter: brightness(0.35) contrast(1.02)
-    drop-shadow(0 0 0.5px rgba(86, 217, 253, 0.5));
 }
 
 @media screen and (min-width: 821px) {
-  .tp_news_btnWrap .el_viewBtn_txt,
-  .tp_news_btnWrap .el_viewBtn:hover .el_viewBtn_txt {
+  .tp_news_btnWrap .el_viewBtn_txt {
     color: #094e63;
   }
 }
