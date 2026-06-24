@@ -20,22 +20,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
   :root{
     --bg:          #FFFFFF;
-    --bg-2:        #F6F6F5;
+    --bg-2:        #F7F7F5;
     --bg-3:        #FFFFFF;
     --line:        rgba(0,0,0,0.10);
     --line-2:      rgba(0,0,0,0.18);
-    --text:        #1A1A1A;
-    --text-mute:   rgba(0,0,0,0.48);
-    --text-dim:    rgba(0,0,0,0.30);
-    --accent:      #FF6B00;
-    --accent-hi:   #FF8533;
-    --accent-glow: rgba(255,107,0,0.18);
+    --text:        #111827;
+    --text-mute:   rgba(17,24,39,0.62);
+    --text-dim:    rgba(17,24,39,0.38);
+    --accent:      #FF6B5A;
+    --accent-hi:   #FF8272;
+    --accent-glow: rgba(255,107,90,0.18);
     --danger:      #D93025;
     --ok:          #1A8A4A;
     --radius:      12px;
     --radius-lg:   18px;
     --shadow-card: 0 2px 16px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
-    --shadow-accent: 0 6px 24px -6px rgba(255,107,0,0.32);
+    --shadow-accent: 0 6px 24px -6px rgba(255,107,90,0.32);
   }
   *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html,body{ margin:0; padding:0; color:var(--text); }
@@ -45,44 +45,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-feature-settings: "palt" 1;
     -webkit-font-smoothing: antialiased;
     min-height: 100svh;
-    background:
-      linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)),
-      url('../assets/images/cbg.jpg') center / cover no-repeat fixed;
+    background: var(--bg-2);
     line-height: 1.6;
     overflow-x: hidden;
   }
   @media (max-width: 767px){
-    body{
-      background:
-        linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.42)),
-        url('../assets/images/cbg.jpg') center top / cover no-repeat !important;
-      background-attachment: scroll !important;
-    }
-
     .lp-bottom{
       max-width: 100% !important;
-      padding: 112px 20px 72px !important;
-      position: relative;
-    }
-
-    .lp-bottom::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.20), rgba(0,0,0,0.34));
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .lp-bottom > *{
-      position: relative;
-      z-index: 1;
+      padding: 96px 20px 72px !important;
     }
 
     .card{
-      border-radius: 24px 24px 0 0 !important;
-      overflow: hidden;
-      background: rgba(255,255,255,0.97);
+      border-radius: var(--radius-lg) !important;
+      background: #FFFFFF;
     }
 
     .foot{
@@ -103,10 +78,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   .inbound-contact-header{
-    color: #FFFFFF;
+    color: #111827;
+    background: rgba(247, 247, 245, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
   .inbound-contact-header .js-header-title-switch{
+    color: #111827;
     text-shadow: none !important;
+  }
+  @media (max-width: 767px){
+    .inbound-contact-header{
+      padding-inline: 1rem;
+    }
   }
 
   .footer-visual-copy {
@@ -126,12 +111,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-visual-brand {
     font-size: 14px;
     font-weight: 500;
-    opacity: 0.85;
+    opacity: 0.95;
     line-height: 1.4;
   }
 
   .footer-visual-menu {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.95);
   }
 
   .footer-visual-menu-title {
@@ -159,7 +144,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media (max-width: 767px) {
     .footer-visual-copy {
-      line-height: 0.9;
+      line-height: 1.12;
     }
 
     .fv-line-1,
@@ -176,7 +161,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--accent);
     padding: 8px 16px;
-    border: 1px solid rgba(255,107,0,0.45);
+    border: 1px solid rgba(255,107,90,0.45);
     border-radius: 999px;
     background: transparent;
   }
@@ -194,7 +179,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     color: var(--text);
   }
   .headline.accent{
-    color: #fff;
+    color: var(--text);
   }
   .headline .accent{
     color: var(--accent);
@@ -203,7 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-weight: 800;
   }
   .sub{
-    color: #fff;
+    color: var(--text-mute);
     font-size: 14.5px;
     line-height: 1.75;
     max-width: 42ch;
@@ -304,7 +289,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-family: "JetBrains Mono", monospace;
     font-size: 9px; letter-spacing: 0.1em;
     padding: 2px 5px; border-radius: 4px;
-    background: rgba(255,107,0,0.09);
+    background: rgba(255,107,90,0.09);
     color: var(--accent);
     text-transform: uppercase;
   }
@@ -354,7 +339,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* フォーカスリング — bg 変化を削除、border + shadow のみ */
   .field-inner:focus-within{
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(255,107,0,0.10);
+    box-shadow: 0 0 0 3px rgba(255,107,90,0.10);
   }
 
   /* バリデーション tick */
@@ -434,7 +419,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .reassure .ic{
     flex:0 0 auto; width: 26px; height: 26px; border-radius: 7px;
-    background: rgba(255,107,0,0.08); color: var(--accent);
+    background: rgba(255,107,90,0.08); color: var(--accent);
     display:flex; align-items:center; justify-content:center;
   }
   .reassure p{
@@ -463,7 +448,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     box-shadow: var(--shadow-accent);
   }
   .submit .arrow{ display:inline-flex; transition: transform .2s ease; }
-  .submit:hover{ background: var(--accent-hi); box-shadow: 0 8px 28px -6px rgba(255,107,0,0.38); }
+  .submit:hover{ background: var(--accent-hi); box-shadow: 0 8px 28px -6px rgba(255,107,90,0.38); }
   .submit:hover .arrow{ transform: translateX(4px); }
   .submit:active{ transform: scale(0.997); }
   .submit:disabled{ opacity: 0.55; cursor: not-allowed; }
@@ -520,7 +505,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .consent-check:checked{
     background: var(--accent);
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(255,107,0,0.10);
+    box-shadow: 0 0 0 3px rgba(255,107,90,0.10);
   }
   .consent-check:checked::after{
     content: "";
@@ -567,8 +552,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .success .ring{
     width: 68px; height: 68px; border-radius: 50%;
     margin: 0 auto 16px;
-    background: rgba(255,107,0,0.07);
-    border: 1px solid rgba(255,107,0,0.25);
+    background: rgba(255,107,90,0.07);
+    border: 1px solid rgba(255,107,90,0.25);
     display:flex; align-items:center; justify-content:center;
     color: var(--accent);
   }
@@ -609,7 +594,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
 
   :focus-visible{ outline: none; }
-  .submit:focus-visible{ box-shadow: 0 0 0 3px rgba(255,107,0,0.28), var(--shadow-accent); }
+  .submit:focus-visible{ box-shadow: 0 0 0 3px rgba(255,107,90,0.28), var(--shadow-accent); }
   .hp-field{
     position: absolute !important;
     left: -9999px !important;
@@ -769,8 +754,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <aside class="site-menu js-site-menu" id="site-menu" aria-hidden="true">
     <div class="site-menu__layout">
       <div class="site-menu__visual">
-        <video class="site-menu__video" src="../assets/videos/menu.mp4" poster="../assets/images/ft.jpg" autoplay muted loop playsinline></video>
-        <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        <div class="site-menu__visual-bg-wrap">
+          <video class="site-menu__video" src="../assets/videos/menu.mp4" poster="../assets/images/ft.jpg" autoplay muted loop playsinline></video>
+          <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        </div>
         <p class="site-menu__visual-title site-menu__visual-head">TABIMAE INBOUND MENU</p>
 
         <div class="site-menu__visual-brand">
@@ -794,8 +781,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <!--  <a href="../../#news" class="site-menu__link">NEWS</a>-->
             <a href="../../message/" class="site-menu__link">MESSAGE</a>
             <a href="../../services/" class="site-menu__link">SERVICES</a>
-            <a href="../../works/" class="site-menu__link">WORKS</a>
-            <a href="../../team/" class="site-menu__link">TEAM</a>
+            <!-- <a href="../../works/" class="site-menu__link">WORKS</a> -->
+            <!-- <a href="../../team/" class="site-menu__link">TEAM</a> -->
             <a href="../../company/" class="site-menu__link">COMPANY</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform" class="site-menu__link">CONTACT</a>
           </nav>
@@ -939,8 +926,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </main>
 
 <section class="section-footer-visual" aria-label="フッター直前ビジュアル">
-  <img src="../assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
-  <div class="footer-visual-overlay" aria-hidden="true"></div>
+  <div class="footer-visual-bg-wrap">
+    <img src="../assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
+    <div class="footer-visual-overlay" aria-hidden="true"></div>
+  </div>
   <div class="footer-visual-frame" aria-hidden="true"></div>
 
   <div class="footer-visual-brand">
@@ -961,8 +950,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <!-- <li><a href="../../#news">NEWS</a></li>-->
       <li><a href="../../message/">MESSAGE</a></li>
       <li><a href="../../services/">SERVICES</a></li>
-      <li><a href="../../works/">WORKS</a></li>
-      <li><a href="../../team/">TEAM</a></li>
+      <!-- <li><a href="../../works/">WORKS</a></li> -->
+      <!-- <li><a href="../../team/">TEAM</a></li> -->
       <li><a href="../../company/">COMPANY</a></li>
       <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSczbCHWtUOWuK3cuaFp8ue76Ym6o9reu7o6rxZXJJcT4LwO3w/viewform">CONTACT</a></li>
     </ul>

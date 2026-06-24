@@ -35,12 +35,12 @@
   .footer-visual-brand {
     font-size: 14px;
     font-weight: 500;
-    opacity: 0.85;
+    opacity: 0.95;
     line-height: 1.4;
   }
 
   .footer-visual-menu {
-    color: rgba(255,255,255,0.85);
+    color: rgba(255,255,255,0.95);
   }
 
   .footer-visual-menu-title {
@@ -68,7 +68,7 @@
 
   @media (max-width: 767px) {
     .footer-visual-copy {
-      line-height: 0.9;
+      line-height: 1.12;
     }
 
     .fv-line-1,
@@ -83,16 +83,13 @@
   }
 
   @media (max-width: 767px) {
-    body {
-      padding-bottom: 96px;
-    }
-
-    .footer-visual-copy {
-      line-height: 0.82;
+    body.has-sp-floating-cta {
+      padding-bottom: 0;
     }
 
     header {
       align-items: flex-start;
+      padding-inline: 1rem;
     }
 
     .js-header-cta.header-floating-cta {
@@ -108,7 +105,9 @@
       padding: 0 24px;
       border-radius: 9999px;
       justify-content: center;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+      box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.32),
+        0 4px 12px rgba(0, 0, 0, 0.18);
       font-size: 15px;
     }
 
@@ -143,7 +142,7 @@
   }
   </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="bg-white text-gray-900 has-sp-floating-cta">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RWTRD8F"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -151,7 +150,7 @@
 
   <!-- Header -->
   <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-6 text-white">
-    <a href="./" class="text-sm leading-tight js-header-title-switch inline-block" style="text-shadow: 0 1px 6px rgba(0,0,0,0.5);">
+    <a href="./" class="text-sm leading-tight js-header-title-switch inline-block">
       <div class="font-medium">ONE PAGE PARTNERS</div>
       <div class="font-semibold">タビマエ・インバウンド</div>
     </a>
@@ -175,8 +174,10 @@
   <aside class="site-menu js-site-menu" id="site-menu" aria-hidden="true">
     <div class="site-menu__layout">
       <div class="site-menu__visual">
-        <video class="site-menu__video" src="assets/videos/menu.mp4" poster="assets/images/ft.jpg" autoplay muted loop playsinline></video>
-        <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        <div class="site-menu__visual-bg-wrap">
+          <video class="site-menu__video" src="assets/videos/menu.mp4" poster="assets/images/ft.jpg" autoplay muted loop playsinline></video>
+          <div class="site-menu__visual-overlay" aria-hidden="true"></div>
+        </div>
         <p class="site-menu__visual-title site-menu__visual-head">TABIMAE INBOUND MENU</p>
 
         <div class="site-menu__visual-brand">
@@ -200,8 +201,8 @@
             <!--  <a href="../#news" class="site-menu__link">NEWS</a>-->
             <a href="../message/" class="site-menu__link">MESSAGE</a>
             <a href="../services/" class="site-menu__link">SERVICES</a>
-            <a href="../works/" class="site-menu__link">WORKS</a>
-            <a href="../team/" class="site-menu__link">TEAM</a>
+            <!-- <a href="../works/" class="site-menu__link">WORKS</a> -->
+            <!-- <a href="../team/" class="site-menu__link">TEAM</a> -->
             <a href="../company/" class="site-menu__link">COMPANY</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform" class="site-menu__link">CONTACT</a>
           </nav>
@@ -350,11 +351,11 @@
         </div>
       </div>
     </div>
-    <div class="absolute inset-0 z-[5]" style="background-color: rgba(0, 0, 0, 0.25);"></div>
+    <div class="hero-kv-overlay" aria-hidden="true"></div>
 
     <!-- Overlay Text -->
-    <div class="absolute inset-0 z-10 flex items-center justify-center px-5 md:px-8">
-      <div class="text-white inline-block text-left" style="text-shadow: 0 4px 24px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.35);">
+    <div class="hero-copy-layer">
+      <div class="hero-copy">
         <div class="text-2xl md:text-5xl leading-none mb-1" style="font-family: 'Noto Sans JP', sans-serif; font-weight: 400;">
           タビマエ<span style="color: #FF6957;">・</span>インバウンド
         </div>
@@ -453,7 +454,7 @@
         <div class="flow-card flow-card-primary relative h-[420px] md:h-[560px] overflow-hidden bg-black">
 
           <img src="assets/images/flow_01.jpg" class="w-full h-full object-cover">
-          <div class="flow-dim absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0"></div>
 
           <span class="flow-no">01</span>
 
@@ -476,7 +477,7 @@
         <!-- 02 -->
         <div class="flow-card relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_02.jpg" class="w-full h-full object-cover">
-          <div class="flow-dim absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0"></div>
 
           <span class="flow-no">02</span>
 
@@ -498,7 +499,7 @@
         <!-- 03 -->
         <div class="flow-card relative h-[420px] md:h-[560px] overflow-hidden bg-black">
           <img src="assets/images/flow_03.jpg" class="w-full h-full object-cover">
-          <div class="flow-dim absolute inset-0 bg-black/25"></div>
+          <div class="flow-dim absolute inset-0"></div>
 
           <span class="flow-no">03</span>
 
@@ -563,6 +564,24 @@
         <img src="assets/images/growth-arrow.svg" alt="" aria-hidden="true" class="late-balloon-svg">
         <p class="late-balloon-text">行くトコ決まってまーす</p>
       </div>
+
+      <div class="late-petals" aria-hidden="true">
+        <span class="late-petal late-petal--1"></span>
+        <span class="late-petal late-petal--2"></span>
+        <span class="late-petal late-petal--3"></span>
+        <span class="late-petal late-petal--4"></span>
+        <span class="late-petal late-petal--5"></span>
+        <span class="late-petal late-petal--6"></span>
+        <span class="late-petal late-petal--7"></span>
+        <span class="late-petal late-petal--8"></span>
+        <span class="late-petal late-petal--9"></span>
+        <span class="late-petal late-petal--10"></span>
+        <span class="late-petal late-petal--11"></span>
+        <span class="late-petal late-petal--12"></span>
+        <span class="late-petal late-petal--13"></span>
+        <span class="late-petal late-petal--14"></span>
+        <span class="late-petal late-petal--15"></span>
+      </div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 md:px-8 text-center mt-10 md:mt-12">
@@ -593,14 +612,16 @@
       </div>
     </div>
 
-    <div class="relative z-10 mt-[-120px] md:mt-[-162px] overflow-hidden">
-      <img src="assets/images/bg-luggage.jpg" alt="空港のスーツケース" class="w-full h-[800px] object-cover js-parallax-plane" style="object-position: center 10%;">
-      <div class="absolute inset-0 bg-black/20"></div>
-      <div class="absolute inset-0 flex items-center justify-center text-center px-6">
-        <p class="text-white font-extrabold leading-[1.45] tracking-[0.01em]">
-          <span class="block text-[26px] md:text-[44px]">タビマエ<span class="text-[#ff6957]">・</span>インバウンドでは</span>
-          <span class="block text-[40px] md:text-[66px]">インバウンド集客に</span>
-          <span class="block text-[40px] md:text-[66px]">つながる施策だけを提供します</span>
+    <div class="parallax-luggage relative z-10 overflow-hidden">
+      <div class="parallax-luggage__plane js-parallax-plane" aria-hidden="true">
+        <img src="assets/images/bg-luggage.jpg" alt="" class="parallax-luggage__image">
+      </div>
+      <div class="parallax-luggage__overlay" aria-hidden="true"></div>
+      <div class="parallax-luggage__copy-wrap">
+        <p class="parallax-luggage__copy font-extrabold leading-[1.45] tracking-[0.01em]">
+          <span class="block text-[22px] md:text-[44px]">タビマエ<span class="text-[#ff6957]">・</span>インバウンドでは</span>
+          <span class="block text-[28px] md:text-[66px]">インバウンド集客に</span>
+          <span class="block text-[28px] md:text-[66px]">つながる施策だけを提供します</span>
         </p>
       </div>
     </div>
@@ -722,8 +743,10 @@
   </section>
 
   <section class="section-footer-visual" aria-label="フッター直前ビジュアル">
-    <img src="assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
-    <div class="footer-visual-overlay" aria-hidden="true"></div>
+    <div class="footer-visual-bg-wrap">
+      <img src="assets/images/ft.jpg" alt="" class="section-footer-visual__bg" />
+      <div class="footer-visual-overlay" aria-hidden="true"></div>
+    </div>
     <div class="footer-visual-frame" aria-hidden="true"></div>
 
     <div class="footer-visual-brand">
@@ -744,8 +767,8 @@
          <!-- <li><a href="../#news">NEWS</a></li>-->
         <li><a href="../message/">MESSAGE</a></li>
         <li><a href="../services/">SERVICES</a></li>
-        <li><a href="../works/">WORKS</a></li>
-        <li><a href="../team/">TEAM</a></li>
+        <!-- <li><a href="../works/">WORKS</a></li> -->
+        <!-- <li><a href="../team/">TEAM</a></li> -->
         <li><a href="../company/">COMPANY</a></li>
         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/viewform">CONTACT</a></li>
       </ul>

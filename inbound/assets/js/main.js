@@ -16,6 +16,42 @@ if (revealTargets.length) {
   revealTargets.forEach(el => observer.observe(el));
 }
 
+const titleMarkLines = document.querySelectorAll('.about-title-mark, .late-title-mark');
+
+if (titleMarkLines.length) {
+  const titleMarkObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.35,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  titleMarkLines.forEach(el => titleMarkObserver.observe(el));
+}
+
+const lateSection = document.querySelector('.section-late');
+
+if (lateSection) {
+  const lateSectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.25,
+    rootMargin: '0px 0px -8% 0px'
+  });
+
+  lateSectionObserver.observe(lateSection);
+}
+
 const headerTitle = document.querySelector('.js-header-title-switch');
 const mvSection = document.querySelector('.js-mv-section');
 
@@ -37,13 +73,18 @@ if (headerTitle && mvSection) {
 }
 
 const parallaxPlane = document.querySelector('.js-parallax-plane');
+const parallaxSpMedia = window.matchMedia('(max-width: 767px)');
 
 if (parallaxPlane) {
-  const PARALLAX_MAX_Y = 52;
-  const PARALLAX_SCALE = 1.14;
+  const getParallaxConfig = () => ({
+    maxY: parallaxSpMedia.matches ? 36 : 52,
+    scale: parallaxSpMedia.matches ? 1.2 : 1.14,
+  });
+
   let ticking = false;
 
   const updateParallax = () => {
+    const { maxY, scale } = getParallaxConfig();
     const rect = parallaxPlane.getBoundingClientRect();
     const viewportH = window.innerHeight || document.documentElement.clientHeight;
     const inView = rect.bottom > 0 && rect.top < viewportH;
@@ -53,9 +94,11 @@ if (parallaxPlane) {
       const viewportCenter = viewportH / 2;
       const progress = (elementCenter - viewportCenter) / (viewportH / 2);
       const clamped = Math.max(-1, Math.min(1, progress));
-      const y = -clamped * PARALLAX_MAX_Y;
+      const y = -clamped * maxY;
 
-      parallaxPlane.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${PARALLAX_SCALE})`;
+      parallaxPlane.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) scale(${scale})`;
+    } else {
+      parallaxPlane.style.transform = `translate3d(0, 0, 0) scale(${scale})`;
     }
 
     ticking = false;
@@ -71,6 +114,12 @@ if (parallaxPlane) {
   updateParallax();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+
+  if (typeof parallaxSpMedia.addEventListener === 'function') {
+    parallaxSpMedia.addEventListener('change', updateParallax);
+  } else if (typeof parallaxSpMedia.addListener === 'function') {
+    parallaxSpMedia.addListener(updateParallax);
+  }
 }
 
 const parallaxWords = document.querySelectorAll('.about-bg-word, .services-bg-word');
