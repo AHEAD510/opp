@@ -60,6 +60,7 @@
 /* ===== Client / Creator tabs ===== */
 .contact_tabs {
   margin-top: 8vw;
+  scroll-margin-top: calc(17.3333333333vw + 16px);
 }
 
 .contact_tabs__list {
@@ -697,6 +698,7 @@ body.contact .bl_contact {
 
   .contact_tabs {
     margin-top: 32px;
+    scroll-margin-top: 96px;
   }
 
   .contact_tabs__list {
