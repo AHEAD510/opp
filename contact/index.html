@@ -91,6 +91,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           ONE PAGE PARTNERSへのご相談・お仕事のご依頼はこちらからお問い合わせください。<br>
           内容を確認のうえ、担当者よりご連絡いたします。
         </p>
+
+        <nav class="contact_tabs" aria-label="お問い合わせ種別">
+          <div class="contact_tabs__list">
+            <a href="./" class="contact_tabs__item is-active" aria-current="page">
+              <span class="contact_tabs__en">Client</span>
+              <span class="contact_tabs__ja">一般のお問い合わせ</span>
+            </a>
+            <a href="./creator/" class="contact_tabs__item">
+              <span class="contact_tabs__en">Creator</span>
+              <span class="contact_tabs__ja">クリエイターのお問い合わせ</span>
+            </a>
+          </div>
+        </nav>
       </div>
 
       <section class="contact_form-card" aria-labelledby="contactFormTitle">
@@ -101,7 +114,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </h2>
         </div>
 
-        <form id="contactForm" class="contact_form" novalidate>
+        <form id="contactForm" class="contact_form" action="https://docs.google.com/forms/d/e/1FAIpQLSecvpUl1s373Dva_lERhV5qOYvtlozeIYMbBdM7cJjC9GhyCA/formResponse" method="POST" novalidate>
           <div class="contact_hp-field" aria-hidden="true">
             <label for="website">Leave this field empty</label>
             <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
@@ -112,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label class="contact_label" for="company">
                 会社名 <span class="contact_req">必須</span>
               </label>
-              <input class="contact_input" id="company" name="company" type="text" autocomplete="organization" required placeholder=" ">
+              <input class="contact_input" id="company" name="entry.618702819" type="text" autocomplete="organization" required placeholder=" ">
               <span class="contact_tick" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
               </span>
@@ -125,7 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label class="contact_label" for="name">
                 お名前 <span class="contact_req">必須</span>
               </label>
-              <input class="contact_input" id="name" name="name" type="text" autocomplete="name" required placeholder=" ">
+              <input class="contact_input" id="name" name="entry.1366306727" type="text" autocomplete="name" required placeholder=" ">
               <span class="contact_tick" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
               </span>
@@ -138,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <label class="contact_label" for="email">
                 メールアドレス <span class="contact_req">必須</span>
               </label>
-              <input class="contact_input" id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" required placeholder=" ">
+              <input class="contact_input" id="email" name="entry.407468413" type="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" required placeholder=" ">
               <span class="contact_tick" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
               </span>
@@ -193,9 +206,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="contact_actions">
             <div class="contact_consent-field" id="consentField">
               <div class="contact_consent-box">
-                <input class="contact_consent-check" type="checkbox" id="privacyConsent" name="privacyConsent" value="同意する" required>
+                <input class="contact_consent-check" type="checkbox" id="privacyConsent" name="entry.2008305608" value="上記内容に同意します。" required>
                 <label class="contact_consent-label" for="privacyConsent">
-                  <a href="#" class="contact_legal-link">個人情報保護方針</a>に同意する
+                  <a href="#" class="contact_legal-link js-contact-legal-open">個人情報保護方針</a>に同意する
                 </label>
               </div>
               <p class="contact_consent-error">個人情報保護方針への同意が必要です。</p>
@@ -209,7 +222,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </button>
 
             <p class="contact_legal">
-              送信前に <a href="#" class="contact_legal-link">個人情報保護方針</a> をご確認ください。
+              送信前に <a href="#" class="contact_legal-link js-contact-legal-open">個人情報保護方針</a> をご確認ください。
             </p>
           </div>
         </form>
@@ -273,9 +286,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <small>©︎2026 ONE PAGE PARTNERS Inc. All rights reserved.</small>
   </p>
 </footer>
+<div id="contactLegalModal" class="contact_legal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="contactLegalModalTitle">
+  <div class="contact_legal-modal__backdrop js-contact-legal-close" aria-hidden="true"></div>
+  <div class="contact_legal-modal__dialog">
+    <div class="contact_legal-modal__header">
+      <h2 id="contactLegalModalTitle" class="contact_legal-modal__title">個人情報保護方針</h2>
+      <button type="button" class="contact_legal-modal__close js-contact-legal-close" aria-label="閉じる">×</button>
+    </div>
+    <div class="contact_legal-modal__body">
+      <h3>プライバシーポリシー</h3>
+      <p>ONE PAGE PARTNERS株式会社（以下「当社」といいます）は、お客様の個人情報の重要性を認識し、適切に取り扱うことを社会的責務と考え、以下の方針に基づき個人情報を管理します。</p>
+      <h4>1. 取得する情報</h4>
+      <p>当社は、お問い合わせフォームを通じて以下の情報を取得します。</p>
+      <ul>
+        <li>お名前</li>
+        <li>会社名</li>
+        <li>部署名</li>
+        <li>メールアドレス</li>
+        <li>電話番号</li>
+        <li>お問い合わせ内容</li>
+      </ul>
+      <h4>2. 利用目的</h4>
+      <p>取得した情報は以下の目的で使用します。</p>
+      <ul>
+        <li>お問い合わせへの回答・ご連絡のため</li>
+        <li>サービスに関する資料送付のため</li>
+        <li>必要に応じたご案内のため</li>
+      </ul>
+      <p>※営業目的での不要なご連絡は行いません。</p>
+      <h4>3. 第三者提供について</h4>
+      <p>当社は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
+      <h4>4. 安全管理</h4>
+      <p>当社は、個人情報の漏洩・紛失・改ざんを防ぐため、適切な安全管理措置を講じます。</p>
+      <h4>5. 開示・訂正・削除</h4>
+      <p>お客様ご本人からの請求があった場合、適切に対応いたします。</p>
+      <h4>6. お問い合わせ窓口</h4>
+      <p>
+        ONE PAGE PARTNERS株式会社<br>
+        <a href="./">お問い合わせはこちら</a>
+      </p>
+      <h4>7. 改定について</h4>
+      <p>本ポリシーは必要に応じて変更されることがあります。</p>
+    </div>
+  </div>
+</div>
 <script src="../assets/lib/jquery.js"></script>
 <script src="../assets/lib/lottie.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/contact-legal.js"></script>
+<script src="../assets/js/contact-client.js"></script>
 </body>
 </html>
