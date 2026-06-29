@@ -1,9 +1,9 @@
-.contact {
-  padding: 21.3333333333vw 0 42.6666666667vw;
+section.contact {
+  padding: 0 0 42.6666666667vw;
   position: relative;
 }
 
-.contact::before {
+section.contact::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -15,7 +15,7 @@
   z-index: 0;
 }
 
-.contact-creator .contact::before {
+.contact-creator section.contact::before {
   background:
     radial-gradient(ellipse 75% 48% at 92% 0%, rgba(255, 161, 254, 0.14) 0%, transparent 70%),
     radial-gradient(ellipse 70% 45% at 8% 20%, rgba(77, 221, 253, 0.1) 0%, transparent 68%),
@@ -30,6 +30,7 @@
   position: relative;
   z-index: 1;
   margin: 0 4.2666666667vw;
+  padding-top: 16vw;
 }
 
 .contact_intro {
@@ -679,8 +680,8 @@ body.contact .bl_contact {
 }
 
 @media screen and (min-width: 821px) {
-  .contact {
-    padding: 80px 0 160px;
+  section.contact {
+    padding: 0 0 160px;
   }
 
   .contact-creator .bl_breadcrumb {
@@ -690,6 +691,7 @@ body.contact .bl_contact {
   .contact_inner {
     max-width: 800px;
     margin: 0 auto;
+    padding-top: 80px;
   }
 
   .contact_intro {
